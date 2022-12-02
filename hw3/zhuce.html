@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<title>注册界面</title>
+		<style>
+			*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+a{
+	text-decoration: none;
+}
+
+html{/* 页面背景 */
+	font-size: 8px;
+	background: url(3.jpg) no-repeat 100% fixed;
+	background-size: cover;
+}
+
+html::before{
+	content: '';
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: -1;
+	backdrop-filter:blur(0.8rem);
+	/* background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%) no-repeat; */
+}
+
+::selection{
+	color: #FFFFFF;
+	background-color: rgb(144,129,241);
+}
+
+.box{
+	display: flex;
+	overflow: hidden;
+	width: 90rem;
+	height: 55rem;
+	border-radius: 1.5rem;
+	margin: 10% auto;
+	box-shadow: 0 0 1rem 0.2rem rgb(0 0 0 / 10%);
+}
+
+.box .left{
+	position: relative;
+	width: 45%;
+	height: 100%;
+	background-color: skyblue;
+}
+
+.box .left::before{
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: url(5.jpg) no-repeat ;
+	background-size: cover;
+	opacity: 80%;
+}
+
+.box .right{
+	display: flex;
+	width: 55%;
+	flex-direction: column;
+	align-items: center;
+	background-color: rgba(255,255,255,80%);
+}
+
+.box .right h4{
+	color: rgb(155, 185, 249);
+	font-size: 3rem;
+	margin-top: 4rem;
+}
+
+.box .right form{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.box .right form .acc{/* 输入框 */
+	outline: none;
+	width: 70%;
+	height: 5rem;
+	font-size: 1.6rem;
+	margin-top: 25px;
+	padding: 0 0 0 1.6rem;
+	border: none;/* 去掉输入框的边框 */
+	border-bottom: 1px solid rgb(144,129,241);
+	color: rgb(144,129,241);
+	background-color: rgba(0,0,0,0);
+}
+
+.right form .acc:focus{ 
+	outline: none;
+	color:#FF7F50;
+	padding: 0 0 0 1.6rem;
+}
+
+.submit{/* 登入按钮 */
+	width: 400px;
+	height: 5rem;
+	color: #f6f6f6;
+	background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+	font-size: 1.4rem;
+	border: none;
+	border-radius: 0.5rem;
+	margin: 40px 0 0 50%;
+	transform: translateX(-50%);
+}
+
+.right .submit:hover{
+	box-shadow: 0 0 2rem -0.5rem rgb(0 0 0 /15%);
+}
+
+.right .down{
+	display: flex;
+	justify-content: space-between;
+	margin-top: 1rem;
+	width: 70%;
+}
+
+.right .down a{
+	font-size: 1.3rem;
+	margin-top: 5rem;
+	padding: 1rem 2rem;
+	color: #666;
+}
+
+.right .down a:hover{
+	color: rgb(144,129,241);
+}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="left"></div>
+			<div class="right">
+				<h4>用户注册</h4>
+				<form action="">
+					<input class="acc" type="text" id="username" placeholder="用户名"/>
+					<input class="acc" type="tel" id="phone" placeholder="手机号"/>
+					<input class="acc" type="password" id="pwd" placeholder="密码"/>
+					<input class="acc" type="password" id="pwd2" placeholder="确认密码"/>
+				</form>
+				<form action="">
+					<input class="submit" type="submit" id="log" value="注册"/>
+				</form>
+			</div>
+		</div>
+		<script>
+					
+					let username1=document.getElementById("username");
+			let phone1=document.getElementById("phone");
+			let pwd1=document.getElementById("pwd");
+			let pwd12=document.getElementById("pwd2");
+			let btn1=document.getElementById("log");
+			
+				/* 点击按钮后触发 */
+			btn1.onclick=function(){
+				/* 判断是否有没填写的信息 */
+				if(username.value==""||(phone.value=="")||(pwd.value=="")||pwd2.value==""){
+					alert("请把信息填写完整");
+				}/* 判断两次密码是否不一致 */
+				else if(pwd1.value==pwd12.value){ 
+					/* 存储用户名和密码 */
+					localStorage.setItem('username1',username.value);
+					localStorage.setItem('pwd1',pwd.value);
+					/* 弹出提示并跳转页面 */
+					alert("用户注册成功\n请登入");
+					window.location.href="dengru.html";
+					window.event.returnValue=false;
+					}else{
+						alert(" 两次密码内容不一致！\n请重新输入");
+					}
+				
+			} 
+
+		</script>
+	</body>
+</html>

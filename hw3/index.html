@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>夜晚人间</title>
+</head>
+<body>
+        
+    <style>
+    body{
+        font: 14px/1.5 Helvetica Neue,Helvetica,Arial,Microsoft Yahei,
+        Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif;
+        color: black;
+    }
+    .topber{
+        width: 100%;
+    }
+    .container{
+        width: 1000px;
+        height: 100%;
+        margin: 0 auto;
+    }
+    
+    
+    /* --------导航栏------------ */
+    
+    /* 导航栏左侧 */
+    .header{/* 黑条 */
+        height: 80px;
+        text-align: center;
+        background:url("1.jpg") no-repeat center center;
+        background-size:cover;
+        background-attachment:fixed;
+    }
+    .header .site-logo{/* logo盒子 */
+        float: left;
+        width: 178px;
+        margin-top: 8px;
+    }
+    .header .site-logo img{/* logo图片 */
+        float: left;
+        width: 65px;
+        margin-left: 10px;
+        border-radius: 100%;
+    }
+    .header .site-logo a{
+        display: block;
+        width: 56px;
+        height: 56px;
+    }
+    .header .site-list{/* 首页字体 */
+        float: left;
+        width: 400px;
+        height: 70px;
+        padding: 10px 0 0 31px;
+        font-size: 21px;
+    }
+    .header .site-list ul li{
+        float: left;
+    }
+    .header .site-list ul li a{ /* 首页字体 */
+        display: block;
+        padding: 15px 10px 18px;
+        color: #FFFFFF;
+    }
+    .header .site-list ul li a:hover{
+        color: coral;
+    }
+    
+    /* tab下拉菜单 */
+    .qita {
+      position: relative;
+      display: inline-block;
+      z-index:1;
+    }
+    .dis {
+        width: 80px;
+        text-align: center;
+        display: none;
+        position: absolute;
+        background-color: #323234;
+        padding: 12px 0px;
+        font-size: 20px;
+        line-height: 10px;
+    }
+    .dis li a{
+        color: #000000;
+    }
+    .qita:hover .dis {
+        display: block;
+    }
+    
+    /* 搜索框 */
+    .header .site-search{
+        float: right;
+        width: 296px;
+        margin-top: 25px;
+        /* background-color: #777; */
+    }
+    .header .site-search from{
+        position: relative;
+        width: 296px;
+        height: 50px;
+    }
+    .search-text{
+        width: 200px;
+        height: 30px;
+        border: 1px solid #E0E0E0;
+        font-size: 14px;
+        padding: 0 10px;
+        float: left;
+        background-color: lightgray;
+    }
+    .submit{/* 登入按钮 */
+         float: left;
+        width: 50px;
+        height: 32px; 
+        margin-left: -1px;
+        border:0px solid #E0E0E0; 
+        background: linear-gradient(120deg, #f9a616 0%, #ffc850 100%);
+    }
+     
+     .login{/* 登入 */
+         float: right;
+         margin: 24px 20px 0 0;
+         color: #FF7F50;
+     }
+     .login img{width: 35px;}
+     .login a{
+         color: #F6F6F6;
+     }
+     .login a:hover{
+         color: #FF7F50;
+     }
+    /* --------导航栏end--------- */
+    
+    
+    
+    /* --------轮播图--------- */
+    
+     .site-content{
+        height: 310px;
+        background-color: #000000;
+    }
+      /* 轮播图 */
+     #imglist img{
+        width: 1000px;
+        height: 300px;
+        border-radius: 5px;
+    }
+    .box {
+        width: 994px;
+        height: 300px;
+        border: 3px #000000 double;
+        position: relative;
+        left: 0px;
+        overflow:hidden;
+        border-radius: 5px;
+    }
+    #imglist {
+        width: 5000px;
+        height:300px;
+        list-style: none;
+        position: absolute;
+        left: 0px; 
+    }
+    #imglist li {
+        float: left;
+    }
+    #btnlist{
+        width: 260px;
+        left: 350px;
+        top:260px;
+        position:absolute;
+        list-style: none;
+    }
+    #btnlist li{
+        color: black;
+        text-align: center;
+        float: left;
+        width: 20px;
+        padding: 10px;
+        border-radius: 100%;
+        background-color:#0000001a;
+        cursor: pointer;/* 鼠标悬浮变小手 */
+    } 
+    
+    
+    /* --------轮播图end--------- */
+    
+    
+    
+    /* --------主页内容--------- */
+     .content{
+        height: 960px;
+        background-color: #000000;
+    }
+
+    
+      /* tab菜单 */
+    #tab{
+        width: 700px;
+        height: 300px;
+        margin-top: 5px;
+        border-radius: 10px;
+        background-color: #323234;   
+    }
+    #tabNav{
+        width: 500px;
+        height: 30px;
+        margin: 10px 0 0 20px;
+    }
+    #tabNav p{
+        float: left;
+        margin-right: 10px;
+        color: #e1e1e1;
+    }
+    #tabNav ul li{
+        float: left;
+        text-align: center;
+        width: 60px;
+        list-style: none;
+        margin-right: 10px;
+        cursor: pointer;
+        color: #e1e1e1;
+    } 
+    .active{
+        background-color: #939292;
+        border-radius: 10px;
+    }
+    #main{
+        clear: both;
+    }
+    .item{
+        display: none;
+        margin-left: 10px;
+    }
+    .show{
+        display: block;
+    }
+    /* tab菜单-最新 */
+    .zuixin-left {
+        float: left;
+        width: 290px;
+        height: 230px;
+        position: relative; 
+        top: 10px;
+        background-color: #939292;
+        border-radius: 10px;
+    }
+    .zuixin-left img{
+        width: 290px;
+        border-radius: 10px;
+    }
+    .zuixin-left a{
+        margin-left: 15px;
+        font-size: 20px;
+        color: #f1efef;
+    }
+    .zuixin-left a:hover{color: coral;}
+    .zuixin-right a:hover{color: coral;}
+    .zuixin-right a{color: #f1efef;}
+    .zuixin-right{
+        width: 330px;
+        height: 230px;
+        float: left;
+        position: relative;
+        top: 10px;
+        left: 30px;
+    }
+    .zuixin-right img{
+        width: 150px;
+        border-radius: 10px;
+    }
+    .zuixin-right1{
+        float: left;
+        width: 150px;
+    }
+    .zuixin-right2{
+        float: right;
+        width: 150px;
+    }
+    .zuixin-right1,.zuixin-right2{
+        display: inline-block;
+    }
+    
+    
+    #tab,.tableft{
+        display: inline-block;
+    }
+    
+
+    .tableft{
+        float: right;
+        width: 280px;
+        margin-top: 5px;
+        background-color:#323234;
+        border-radius: 10px;
+    }
+    .tableft-list{
+        height: 45px;
+        margin-left: 15px;
+        position: relative;
+        top: 10px;
+        color: #e1e1e1;
+    }
+    .tableft-list a{
+        color: #e1e1e1;
+        margin-left: 5px;
+    }
+    .tableft-list a:hover{
+        color: #FF7F50;
+    }
+    .tableft-list p{
+        display:inline;
+        color: #FF7F50;
+    }
+    
+    /* tab菜单下方 */
+    .tabdown{
+        height: 300px;
+    }
+    .tabdown img{
+        width: 156.6px;
+        height: 215px;
+        border-radius: 5px;
+    }
+    
+    .tabdown li{
+        float: left;
+        height: 260px;
+        margin-right: 10px;
+    }
+    .tabdown a{
+        font-size: 10px;
+        color: #e1e1e1;
+    }
+    .tabdown a:hover{color: coral;}
+</style>
+<style>
+    body,p,ul{
+	margin: 0;
+	padding: 0;
+    }
+    input{
+	border: none;
+	outline: none;
+    }
+    a{
+	text-decoration: none;
+    }
+    *{
+	text-decoration: none;
+	list-style: none;
+    }
+</style>
+</body>
+<body>
+    <style>
+ /* --------主页内容end--------- */
+    
+    /* --------- 底部栏 ---------- */
+    .footer {
+        position: relative;
+        height: 200px;
+        width: 100%;
+        background: #323234;
+        color: #A2A2A2;
+        margin-top: 0px;
+        /* border-top: 1px solid #F2F2F2; */
+    }
+    .footer-liebiao{
+        padding-top: 15px;
+        height: 100px;
+        width: 1000px;
+    }
+    .neir h4{
+        color: #666666;
+    }
+    .footer-liebiao td{
+        width: 100px;
+    }
+    .guanyu {
+        float: left;
+        width: 370px;
+        height: 10px;
+        margin: 0 0px 0 50px;
+    }
+    .xieyi {
+        float: left;
+        width: 370px;
+        margin: 0 0px 0 150px;
+    }
+    .footer-infro {
+        margin-top: 3px;
+        font-family: '宋体';
+        /* padding-top: 30px; */
+        text-align: center;
+        font-size: 14px;
+        line-height: 21px;
+    }
+    /* -------- 底部栏end --------- */
+    
+    </style>
+</body>
+<body>
+    <audio autoplay="autoplay" loop="loop" preload="auto"src="1.mp3">
+    </audio>
+    <!---------------- 导航栏 ------------------>
+		<div class="header">
+			<div class="container">
+				
+				<!-- logo -->
+				<div class="site-logo">
+					<a href="#">
+						<img src="logo.jpg" />
+					</a>
+				</div>
+				
+				<!-- 首页导航 -->
+				<div class="site-list">
+					<ul class="clearfix">
+						<li>
+							<a href="index.html"><font color="coral"><b>日食记</b></font></a>
+						</li>
+						<li>
+							<a href="dianying.html">电影</a>
+						</li>
+						<li>
+							<a href="sb.html">酥饼大人</a>
+						</li>
+						<li>
+							<a href="shoucang.html">收藏</a>
+						</li>
+				<!-- tab下拉菜单 -->
+						<li class="qita">
+							<a href="#">其他</a>
+							<ul class="dis">
+								<li><a href="z.jpg" target="_blank">早茶</a></li>
+								<li><a href="w.jpg" target="_blank">午饭</a></li>
+								<li><a href="wa.jpg" target="_blank">晚餐</a></li>
+								<li><a href="y.jpg" target="_blank">夜宵</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<!-- 登入/注册 -->
+				<div class="login">
+					<a href="dengru.html">
+						<img src="yonghu.png"/>
+					</a>
+				</div>
+				<!-- 搜索框 -->
+				<div class="site-search">
+					<form action="">
+						<input class="search-text"   type="text" placeholder="请输入关键字"/>
+						<input class="submit" type="submit" value="搜索"/>
+					</form>
+				</div>
+			</div>
+		</div>
+<!--------------- 轮播图 ----------------->
+		<div class="site-content">
+			<div class="container">
+		<!----- 轮播图 ----->
+				<div class="box">
+				    <ul id="imglist">
+				        <li><img src="1.gif" alt=""></li>
+				        <li><img src="2.gif" alt=""></li>
+				        <li><img src="3.gif" alt=""></li>
+				        <li><img src="4.gif" alt=""></li>
+				        <li><img src="5.gif" alt=""></li>
+				    </ul>
+					<!-- 轮播点点 -->
+				    <ul id="btnlist">
+				        <li class="btn active"></li>
+				        <li class="btn"></li>
+				        <li class="btn"></li>
+				        <li class="btn"></li>
+				        <li class="btn"></li>
+				    </ul>
+				</div>
+                <script>
+                var index = 0;
+var imglist = document.getElementById('imglist');
+var btnlist = document.getElementById('btnlist');
+var arrbtn = btnlist.getElementsByTagName('li');
+/* 2秒轮播 */
+function btnchange(index) {
+    for (var i = 0; i < 5; i++) {
+        if (i == index) {
+            arrbtn[i].style.backgroundColor = 'coral';
+        }
+        else {
+            arrbtn[i].style.backgroundColor = 'rgba(0,0,0,0.2)';
+        }
+    }
+}
+
+for (var i = 0; i < 5; i++) {
+    arrbtn[i].num = i;
+    arrbtn[i].onmouseover = function () {
+        index = this.num;
+        imglist.style.left = index * (-1000) + 'px';
+        clearInterval(t);
+        btnchange(index);
+        this.onmouseout = function () {
+            t = setInterval(imgchange, 2000);
+        }
+    }
+
+}
+
+function imgchange() {
+    if (index == 4)
+        index = -1;
+    index++;
+    imglist.style.left = index * (-1000) + 'px';
+    btnchange(index);
+}
+var t = setInterval(imgchange, 2000);
+</script>
+
+			</div>
+		</div>
+<!--------------- 内容详细 ----------------->
+		<div class="content">
+            
+			<div class="container">
+			<!----- tab菜单 ----->
+				<div id="tab">
+					<div id="tabNav">
+						<p><strong>最新作品</strong></p>
+						<ul>
+							<li class="active">冬</li>
+							<li>秋</li>
+							<li>夏</li>
+						</ul>
+					</div>
+					<div id="main">
+						<div class="item show">
+							<!-- tab最新模块 -->
+							<div class="main-zuixin">
+								
+								<div class="zuixin-left"><!-- 左图 -->
+									<img src="mhqx.jpg" />
+                                    <a href="https://video.weibo.com/show?fid=1034:4603152570450011&amp;mark_id=999_reallog_mark_ad%253A999%257CWeiboADNatural" target="_blank">【满汉全席】</a>
+								</div>
+								<div class="zuixin-right"><!-- 右图 -->
+									<div class="zuixin-right1"><!-- 左列 -->
+										<div>
+											<img src="cfs.jpg" />
+											<a href="https://video.weibo.com/show?fid=1034:4841194568745034&amp;mark_id=999_reallog_mark_ad%253A999%257CWeiboADNatural" target="_blank"> 炒粉丝</a>
+										</div>
+										<div>
+											<img src="szt.jpg" />
+											<a href="https://video.weibo.com/show?fid=1034:4839387859714127&amp;mark_id=999_reallog_mark_ad%253A999%257CWeiboADNatural" target="_blank"> 蟹粉瀑布狮子头</a>
+										</div>
+									</div>
+									<div class="zuixin-right2"><!-- 右列 -->
+										<div>
+											<img src="jzb.jpg" />
+											<a href="https://video.weibo.com/show?fid=1034:4838680792334512" target="_blank"> 生姜螃蟹鸡爪煲</a>
+										</div>
+										<div>
+											<img src="bsdg.jpg" />
+											<a href="https://video.weibo.com/show?fid=1034:4837583423995930" target="_blank"> 五块钱的食材</a>
+										</div>
+									</div>
+								</div>
+								
+							</div>
+						</div>
+						<!-- tab秋 -->
+						<div class="item">
+							
+							<div class="zuixin-left"><!-- 左图 -->
+								<img src="dyg.jpg" />
+								<a href="https://video.weibo.com/show?fid=1034:4828177315594297&amp;mark_id=followtopweibo" target="_blank"> 【冬阴功部队锅】</a>
+							</div>
+							<div class="zuixin-right"><!-- 右图 -->
+								<div class="zuixin-right1"><!-- 左列 -->
+									<div>
+										<img src="lsf.jpg" />
+										<a href="https://video.weibo.com/show?fid=1034:4833214175576083" target="_blank"> 螺蛳粉火锅菜</a>
+									</div>
+									<div>
+										<img src="dr.jpg" />
+										<a href="https://video.weibo.com/show?fid=1034:4830288023584903" target="_blank"> 豆乳火锅串串</a>
+									</div>
+								</div>
+								<div class="zuixin-right2"><!-- 右列 -->
+									<div>
+										<img src="qcg.jpg" />
+										<a href="https://video.weibo.com/show?fid=1034:4825636313956362" target="_blank"> 千层白菜肥牛锅</a>
+									</div>
+									<div>
+										<img src="hsr.jpg" />
+										<a href="https://video.weibo.com/show?fid=1034:4823093357772844" target="_blank"> 会拉丝的红烧肉</a>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+						<!-- tab夏 -->
+						<div class="item">
+							
+							<div class="zuixin-left"><!-- 左图 -->
+								<img src="fy.jpg" />
+								<a href="https://video.weibo.com/show?fid=1034:4811463836237911&amp;mark_id=followtopweibo" target="_blank"> 【赴约】</a>
+							</div>
+							<div class="zuixin-right"><!-- 右图 -->
+								<div class="zuixin-right1"><!-- 左列 -->
+									<div>
+										<img src="sy.jpg" />
+										<a href="https://video.weibo.com/show?fid=1034:4806407925727336" target="_blank"> 生腌拌饭</a>
+									</div>
+									<div>
+										<img src="xzk.jpg" />
+										<a href="https://video.weibo.com/show?fid=1034:4805308246327345&amp;mark_id=followtopweibo" target="_blank"> 锡纸烤</a>
+									</div>
+								</div>
+								<div class="zuixin-right2"><!-- 右列 -->
+									<div>
+										<img src="bjl.jpg" />
+										<a href="https://video.weibo.com/show?fid=1034:4786170941603883&amp;mark_id=followtopweibo" target="_blank"> 炫玲珑雪山</a>
+									</div>
+									<div>
+										<img src="yzgl.jpg" />
+										<a href="http://miaopai.com/show/hUrtFUuRl13jQ0G8D-xeLVotGg6fwNro.htm?mark_id=999_reallog_mark_ad%253A999%257CWeiboADNatural" target="_blank"> 杨枝甘露</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<script>
+                    let tabName=document.querySelector("#tabNav");
+                    let lis=tabName.querySelectorAll("li");
+                    let items=document.querySelectorAll(".item");
+                    for(let i=0;i<lis.length;i++){
+                        lis[i].onclick=function(){
+                            lis.forEach(value=>{value.className='';});
+                            lis[i].className='active';
+                            items.forEach(value=>{value.className='item'});
+                            items[i].className='item show';
+                        }
+                    }
+                </script>		
+										
+		<!----- tab菜单的右侧框 ----->		
+				<div class="tableft">
+					<div class="tableft-list">
+						<h3>自家小店</h3>
+					</div>
+					<hr size="1" color="#A2A2A2"/>
+					<div class="tableft-list">
+						<p><font face="微软雅黑" size="4"><i>1 </i></font></p>
+						<a href="https://uland.taobao.com/ccoupon/edetail?e=GhmVIdBWJJylhHvvyUNXZQst4RUgB%2BQM1dI5raycii4uynEbLfMGNpuwdvbsxuixI1mVYSbYA2FyvQjw2MCVeunf3EW72Byb78Tq54%2FbTn9f1UA4ZNs58asOdvhovyEuvPBdhixffXbLkU4k%2FaBIVU%2F9Zk7cDx8UPwcOkmMR6fLAkWfjKnUnOq5zphJKDNiLb7%2FbZZa%2BA8xcqViUI94MXJdiItdnwVocWp2vk3TMBmAG7dMdUkdAheeBbn0Uq7yxGDGOoGGjkbnAkWfjKnUnOifcmQ7b4KSaJVwHjIRLgmYTcnUtPhvnP3nhG2oqJYLb0Zm0VgY6RB4yP5CkC7crH6VkSYwX0%2Bt4QsBvEa9ae1r02K7WiA95QacY%2BWXhwefz1uZGAy3YwTtk8VgU82nepNlR8MdUUpQ3DmT8PslLyQ0Hdf5xkGFXGQzUv%2BYStry7WRP66uzeo7Y%3D&traceId=210761d216697942828154923e12a4&union_lens=lensId:TAPI@1669794282@2106eda4_0c04_184c77ebd7b_884e@01" target="_blank">漳州平和葡萄柚</a>
+					</div>
+					<div class="tableft-list">
+						<p><font face="微软雅黑" size="4"><i>2 </i></font></p>
+						<a href="https://uland.taobao.com/ccoupon/edetail?e=ShP9%2BXlq6z2lhHvvyUNXZQst4RUgB%2BQM1dI5raycii4uynEbLfMGNlJ7hSAxyB4b0vocV9tOqDTN%2B78yPsQzNe%2B9aZCvgmnYQNEvS5K7vT%2FNEY5%2FqrmiIBvDTWPRRhPHU5PSFLaxnNJ2hpSzkXEPijTU8DC75RBxD%2BSFR793fmyTtXD4ZNnSkVR%2FZOIU55t7J1y1Ol7xwTPIhSHljCusf5SX1UrcwRiX0SP%2B2Wr1SW8RQCm7psO3L1qFFW9u%2Fka4Nh3I7eC7U7f0knzOKOnfrAck2kpPz9mwpfi9pNfMzG%2FL5Dl0dW91PC4LWqZ5Otnj7sBCg4pL4Ky9K7K8OOlweSVcB4yES4JmE3J1LT4b5z954RtqKiWC21v81ai%2FtcGpA6R4qMtv%2F69Hxl9CelgwxTRshPw8STasPIh3zv2Zc8V4chzvyoReYAk%2FwPX6CUItJTNWSR3CwiY%3D&traceId=21057b9016693589347955065e9715&union_lens=lensId:TAPI@1669358934@213f8baf_0c20_184ad8bdb5a_ba5d@01" target="_blank">江南米酿</a>
+					</div>
+					<div class="tableft-list">
+						<p><font face="微软雅黑" size="4"><i>3 </i></font></p>
+						<a href="https://uland.taobao.com/ccoupon/edetail?e=gzh0LOrAwuulhHvvyUNXZQst4RUgB%2BQM1dI5raycii4uynEbLfMGNpuwdvbsxuixI1mVYSbYA2Gubr25rXYRtWC6XrRNg3iRjVxZ0LeqHPv5b%2FOOOIaaTeNqAe139oAY%2FPtVrhkYHz3LkU4k%2FaBIVU%2F9Zk7cDx8UPwcOkmMR6fLAkWfjKnUnOq5zphJKDNiLVSDZrdOOUC2fC802cOe8updiItdnwVocWp2vk3TMBmAG7dMdUkdAheeBbn0Uq7yxGDGOoGGjkbnAkWfjKnUnOifcmQ7b4KSaJVwHjIRLgmYTcnUtPhvnP3nhG2oqJYLb0Zm0VgY6RB4yP5CkC7crH6VkSYwX0%2Bt4QsBvEa9ae1r02K7WiA95QacY%2BWXhwefzNOpgXtEJHVTSfMNelSE6odlR8MdUUpQ3DmT8PslLyQ0Hdf5xkGFXGQzUv%2BYStry7WRP66uzeo7Y%3D&traceId=2104519616690977643555255e38d5&union_lens=lensId:TAPI@1669097764@213373ad_0b9f_1849dfab64e_d772@01" target="_blank">富平柿饼</a>
+					</div>
+					<div class="tableft-list">
+						<p><font face="微软雅黑" size="4"><i>4 </i></font></p>
+						<a href="https://uland.taobao.com/ccoupon/edetail?e=cHIJQpmDkhqlhHvvyUNXZQst4RUgB%2BQM1dI5raycii4uynEbLfMGNlJ7hSAxyB4bWGGsbz7KkXVSj16LjfMpzWiG%2BNkwJpPcgsOMGTKiZCoI4Sib4gGC4Hi9YSE6H2ckVFXtJ1uq9pwR9msLEk0PStVqM6BWlz38PkVmPTzH9Kj1BRKL%2FUIUf7ZB4GXhba7vNdZLjqYYlkT%2B6asQHfW1FifW24LXgiS4KSe6Uyp733XtlJqxEbf28DCam4wpROsbt3gk2fxMVlj4NHuDUchW6YqemZUPZk47F6yJbK84vUVI2e%2F%2B9AVV3aTsFlWsfCZssGVQeKHqLjQu3ggAg7b2rqX4vaTXzMxvy%2BQ5dHVvdTwuC1qmeTrZ4%2B1ehKH9da7xM32kJcQiVbAlLnhNFwGCkGk%2FUbmBxEf77BYE5HpB%2FvQ7YnVxqpRr681rh%2B4QgJspTA0FRtOwCuw%3D&traceId=210761ac16687651849594494e6f7e&union_lens=lensId:TAPI@1668765185@21334735_0b3e_1848a27f405_9e6b@01" target="_blank">油泼辣子</a>
+					</div>
+					<div class="tableft-list">
+						<p><font face="微软雅黑" size="4"><i>5 </i></font></p>
+						<a href="https://uland.taobao.com/ccoupon/edetail?e=pp7XHxMOEuylhHvvyUNXZQst4RUgB%2BQM1dI5raycii4uynEbLfMGNpuwdvbsxuixI1mVYSbYA2FKqmjS%2FxlHDW42VotP1XLfUDoa6DtAy3NMA4EWFLmrtM0%2Bc0qgNITWCH1tWvP0yorLkU4k%2FaBIVU%2F9Zk7cDx8UPwcOkmMR6fLAkWfjKnUnOtGF8KJrgTo0GBX3QxpU1PTz%2F9IvFJOEHJdiItdnwVocWp2vk3TMBmAG7dMdUkdAheeBbn0Uq7yxGDGOoGGjkbnAkWfjKnUnOifcmQ7b4KSaJVwHjIRLgmYTcnUtPhvnP3nhG2oqJYLb0Zm0VgY6RB4yP5CkC7crH6VkSYwX0%2Bt4QsBvEa9ae1r02K7WiA95QacY%2BWXhwefzCwTdZ1tMNyLcJ3uKNHZo6M8rQ508n9swFx0BijKHUncHdf5xkGFXGQzUv%2BYStry7fjh37OZy0Bg%3D&traceId=2104567f16685709453514112e1462&union_lens=lensId:TAPI@1668570945@213ff22f_0b57_1847e941791_4365@01" target="_blank">新孟河花雕熟醉蟹</a>
+					</div>				
+				</div>
+			
+		<!----- tab菜单下方 ----->
+				<!-- 影视 -->
+				<div class="tabdown">
+					<a href="dianying.html"><h1>影视</h1></a>
+					<ul>
+						<li>
+							<img src="6.jpg" alt="">
+							<div><a href="xiamu3.html">新年旧味</a></div>
+						</li>
+						<li>
+							<img src="7.jpg" alt="">
+							<div><a href="https://www.iqiyi.com/v_19rro9nod4.html?vfrm=pcw_album_auto" target="_blank">爸爸的木匠小屋</a></div>
+						</li>
+						<li>
+							<img src="8.jpg" alt="">
+							<div><a href="https://www.bilibili.com/bangumi/play/ss24439?spm_id_from=333.337.0.0" target="_blank">人生一串</a></div>
+						</li>
+						<li>
+							<img src="9.jpg" alt="">
+							<div><a href="https://www.bilibili.com/bangumi/play/ss33968?spm_id_from=333.337.0.0" target="_blank">舌尖上的中国</a></div>
+						</li>
+						<li>
+							<img src="10.jpg" alt="">
+							<div><a href="https://www.bilibili.com/bangumi/play/ss43627?spm_id_from=333.337.0.0" target="_blank">风味人间</a></div>
+						</li>
+                        <li>
+							<img src="12.jpg" alt="">
+							<div><a href="https://www.bilibili.com/bangumi/play/ep118317?theme=movie&spm_id_from=333.337.0.0" target="_blank">声之形</a></div>
+						</li>
+					</ul>
+				</div>
+				<!-- 店里吉祥物 -->
+				<div class="tabdown">
+					<a href="sb.html"><h1>店里吉祥物</h1></a>
+					<ul>
+						<li>
+							<img src="21.jpg" alt="">
+							<div><a href="#">酥饼大人</a></div>
+							
+						</li>
+						<li>
+							<img src="22.jpg" alt="">
+							<div><a href="#">咖喱</a></div>
+						</li>
+						<li>
+							<img src="23.jpg" alt="">
+							<div><a href="#">小刀</a></div>
+						</li>
+						<li>
+							<img src="24.jpg" alt="">
+							<div><a href="#">奶油</a></div>
+						</li>
+						<li>
+							<img src="25.jpg" alt="">
+							<div><a href="#">张飞</a></div>
+						</li>
+						<li>
+							<img src="sb6.jpg" alt="">
+							<div><a href="#">酥饼*2</a></div>
+						</li>
+					</ul>
+				</div>
+			
+			</div>
+		</div>
+<!---------------- 底部栏 ---------------->
+		<div class="footer">
+			<div class="container">
+				<div class="footer-liebiao">
+					<div class="guanyu">
+						<table>
+							<tr class="neir">
+								<td colspan="5"><h4>关于我们</h4></td>
+							</tr>
+							<tr>
+								<td>关于我们</td>
+								<td>联系我们</td>
+								<td>在线反馈</td>
+								<td>侵权投诉</td>
+								<td>繁体字</td>
+							</tr>
+						</table>
+					</div>
+					
+					<div class="xieyi">
+						<table>
+							<tr class="neir">
+								<td><h4>协议声明</h4></td>
+							</tr>
+							<tr>
+								<td>用户协议</td>
+								<td>隐私政策</td>
+								<td>历史协议版本</td>
+								<td>知识产权声明</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<!-- 版权说明 -->
+				<div class="footer-infro">
+					罐头工厂
+					<br />酥饼大人智力有限公司 
+				</div>
+			</div>
+		</div>
+</body>
+</html>

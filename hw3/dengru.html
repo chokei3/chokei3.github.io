@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<title>登入界面</title>
+		<style>
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box
+		}
+
+
+a{
+	text-decoration: none;
+}
+
+html{/* 页面背景 */
+	font-size: 8px;/* 整体页面大小 */
+	background: url(2.jpg) no-repeat 100% fixed;
+	background-size: cover;
+}
+
+html::before{
+	content: '';
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: -1;
+	backdrop-filter:blur(0.8rem);
+}
+
+::selection{
+	color: #FFFFFF;
+	background-color: rgb(144,129,241);
+}
+
+.box{
+	display: flex;
+	overflow: hidden;
+	width: 90rem;
+	height: 55rem;
+	border-radius: 1.5rem;
+	margin: 10% auto;
+	box-shadow: 0 0 1rem 0.2rem rgb(0 0 0 / 10%);
+}
+
+.box .left{
+	position: relative;
+	width: 45%;
+	height: 100%;
+	background-color: rgb(0 0 0/0.1);
+}
+
+.box .left::before{/* 插入左侧图片 */
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: url(4.jpg) no-repeat ;
+	background-size: cover;
+	opacity: 80%;
+}
+
+.box .right{
+	display: flex;
+	width: 55%;
+	flex-direction: column;
+	align-items: center;
+	background-color: rgba(255,255,255,80%);
+}
+
+.box .right h4{/* 开头登入二字字体 */
+	color: rgb(211, 138, 70);
+	font-size: 3rem;
+	margin-top: 5rem;
+}
+
+.box .right form{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.box .right form .acc{/* 输入框 */
+	outline: none;
+	width: 80%;
+	height: 5rem;
+	font-size: 1.6rem;
+	margin-top: 5rem;
+	padding: 0 0 0 1.6rem;
+	border: none;/* 去掉输入框的边框 */
+	border-bottom: 1px solid rgb(211, 138, 70);
+	color: rgb(211, 138, 70);
+	background-color: rgba(0,0,0,0);
+}
+
+.right form .acc:focus{ 
+	outline: none;
+	color:#FF7F50;
+	
+	padding: 0 0 0 1.6rem;
+}
+
+.submit{/* 登入按钮 */
+	width: 200px;
+	height: 5rem;
+	color: #f6f6f6;
+	background: linear-gradient(120deg, #f2a32d 0%, #ca672d 100%);
+	font-size: 1.4rem;
+	border: none;
+	border-radius: 0.5rem;
+	margin: 6rem 0 0 50%;
+	transform: translateX(-50%);
+}
+
+.right .submit:hover{
+	box-shadow: 0 0 2rem -0.5rem rgb(0 0 0 /15%);
+}
+
+.right .down{
+	display: flex;
+	justify-content: space-between;
+	margin-top: 1rem;
+	width: 70%;
+}
+
+.right .down a{
+	font-size: 1.3rem;
+	margin-top: 5rem;
+	padding: 1rem 2rem;
+	color: #666;
+}
+
+.right .down a:hover{
+	color: rgb(211, 138, 70);
+}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="left"></div>
+			<div class="right">
+				<h4>登 录</h4>
+				
+				<form  action="#">
+					<input class="acc" type="text" id="username" placeholder="用户名（管理输入酸奶，其他前往注册）"/>
+					<input class="acc" type="password" id="pwd" placeholder="密码（管理输入666）"/>
+				</form>
+				<from  action="#">
+						<input class="submit" type="submit" id="log" value="登录"/>
+				</from>
+				
+				<div class="down">
+					<a href="zhuce.html">注册账号</a>
+					<a href="#">忘记密码？你就再注册一个</a>
+				</div>
+			</div>
+		</div>
+		<script>
+			let users=[{name:'丁真',pwd:'15'},{name:'a',pwd:'111'},{name:'b',pwd:'222'}];
+			let gly=[{name:'酸奶',pwd:'666'}]
+			
+			let username=document.getElementById("username");
+			let pwd=document.getElementById("pwd");
+			let btn=document.getElementById("log");
+			
+			/* 点击按钮后触发声明 */
+			btn.onclick=function(){
+				/* 遍历两个数组 */
+				let ret=users.some(function(value){
+					return value.name==username.value && value.pwd==pwd.value;
+				});
+				
+				let gly1=gly.some(function(value){
+					return value.name==username.value && value.pwd==pwd.value;
+				});
+				
+				/* 判断键盘获取用户名和密码是否注册了并存储在了locaStorage中 */
+				if(username.value==localStorage.getItem('username1') && pwd.value==localStorage.getItem('pwd1')){
+					alert("用户登入成功");
+					window.location.href="index.html"
+						/* 判断是否是预设账户 并判断是用户或管理分别跳转 */		
+				}else if(ret){
+					alert("用户登入成功");
+					window.location.href="index.html"
+					
+				}else if(gly1){
+					alert("管理员登入成功");
+					window.location.href="GuanLi.html"
+				}else{/* 输入错误 */
+					alert("输入正确用户名和密码");
+				}
+			}
+		</script>
+	</body>
+	</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<title>预告</title>
+		<style>
+			body,p,ul{
+	margin: 0;
+	padding: 0;
+	background:url("26.jpg") no-repeat center center;
+        background-size:cover;
+        background-attachment:fixed;
+}
+input{
+	border: none;
+	outline: none;
+}
+a{
+	text-decoration: none;
+}
+*{
+	text-decoration: none;
+	list-style: none;
+}
+		</style>
+		<style>
+			body{
+			    font: 14px/1.5 Helvetica Neue,Helvetica,Arial,Microsoft Yahei,
+				Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif;
+				color: black;
+			}
+			.topber{
+				width: 100%;
+			}
+			.container{
+				width: 1000px;
+				height: 100%;
+				margin: 0 auto;
+			}
+			/* --------导航栏------------ */
+    
+    /* 导航栏左侧 */
+    .header{/* 黑条 */
+        height: 80px;
+        text-align: center;
+        background-color: #323234;
+    }
+    .header .site-logo{/* logo盒子 */
+        float: left;
+        width: 178px;
+        margin-top: 8px;
+    }
+    .header .site-logo img{/* logo图片 */
+        float: left;
+        width: 65px;
+        margin-left: 10px;
+        border-radius: 100%;
+    }
+    .header .site-logo a{
+        display: block;
+        width: 56px;
+        height: 56px;
+    }
+    .header .site-list{/* 首页字体 */
+        float: left;
+        width: 400px;
+        height: 70px;
+        padding: 10px 0 0 31px;
+        font-size: 21px;
+    }
+    .header .site-list ul li{/* 列表排列 */
+        float: left;
+    }
+    .header .site-list ul li a{ /* 首页字体 */
+        display: block;
+        padding: 15px 10px 18px;
+        color: #FFFFFF;
+    }
+    .header .site-list ul li a:hover{/* 鼠标悬浮 */
+        color: coral;
+    }
+    
+    /* tab下拉菜单 */
+    .qita {
+      position: relative;
+      display: inline-block;
+      z-index:1;
+    }
+    .dis {
+        width: 80px;
+        text-align: center;
+        display: none;
+        position: absolute;
+        background-color: #323234;
+        padding: 12px 0px;
+        font-size: 20px;
+        line-height: 10px;
+    }
+    .dis li a{
+        color: #000000;
+    }
+    .qita:hover .dis {
+        display: block;
+    }
+    
+    /* 搜索框 */
+    .header .site-search{
+        float: right;
+        width: 296px;
+        margin-top: 25px;
+    }
+    .header .site-search from{
+        position: relative;
+        width: 296px;
+        height: 50px;
+    }
+    .search-text{
+        width: 200px;
+        height: 30px;
+        border: 1px solid #E0E0E0;
+        font-size: 14px;
+        padding: 0 10px;
+        float: left;
+        background-color: lightgray;
+    }
+    .submit{/* 登入按钮 */
+         float: left;
+        width: 50px;
+        height: 32px; 
+        margin-left: -1px;
+        border:0px solid #E0E0E0; 
+        background: linear-gradient(120deg, #f9a616 0%, #ffc850 100%);
+    }
+     
+     .login{/* 登入 */
+         float: right;
+         margin: 24px 20px 0 0;
+         color: #FF7F50;
+     }
+     .login img{width: 35px;}
+     .login a{
+         color: #F6F6F6;
+     }
+     .login a:hover{
+         color: #FF7F50;
+     }
+    /* --------导航栏end--------- */
+		</style>
+	</head>
+	<body>
+		<div class="beijing">
+			<div class="header">
+				<div class="container">
+					
+					<!-- logo -->
+					<div class="site-logo">
+						<a href="#">
+							<img src="logo.jpg" />
+						</a>
+					</div>
+					
+					<!-- 首页导航 -->
+					<div class="site-list">
+						<ul class="clearfix">
+							<li>
+								<a href="index.html">首页</a>
+							</li>
+							<li>
+								<a href="dianying.html"><font color="coral"><b>电影</b></font></a>
+							</li>
+						</ul>
+					
+					</div> 
+					<!-- 登入/注册 -->
+					<div class="login">
+						<a href="dengru.html">
+							<img src="yonghu.png"/>
+						</a>
+					</div>
+					<!-- 搜索框 -->
+					<div class="site-search">
+						<form action="">
+							<input class="search-text"   type="text" placeholder="请输入关键字"/>
+							<input class="submit" type="submit" value="搜索"/>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div id="ship">
+				<div class="container">
+				<video width="1000px" controls="controls" style="padding:20px;border-radius: 30px;">
+					<source src="1.mp4" type="video/mp4"></source>
+				</video>
+				</div>
+			</div>
+		</div>
+		
+		
+	</body>
+</html>
