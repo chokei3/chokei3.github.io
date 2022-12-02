@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>新闻</title>
+    <style> 
+        body{
+              background:url("1.jpg")  no-repeat center center;
+              background-size:cover;
+              background-attachment:fixed;
+            }
+    </style>
+    <style>
+        .header {
+            height: 70px;
+            border-top: 5px solid #e6c082b1;
+            background-color: #3f3d3d;
+            opacity:0.7;
+        }
+        .header a {
+            display: inline-block;
+            height: 70px;
+            padding: 0 50px;
+            padding-top: 13px;
+            font-size: 30px;
+            font-weight: bolder;
+            color: white;
+            text-shadow: 0 0 9px #794d29;
+            text-decoration: none;
+        }
+
+        .header a:hover {
+            background-color: #eee;
+            color: #665d0e;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <a href="首页.html">首页</a>
+        <a href="新闻.html">新闻</a>
+        <a href="角色.html">角色</a>
+    </div>
+</body>
+<body>
+    <p style="font-size:45px;color:rgb(126, 109, 109);text-align: center;">---新闻资讯---</p>
+</body>
+<body>
+    <p>
+    <div id="butong_net_left" style="overflow:hidden;width:640px;padding-left:7%;">
+        <table cellpadding="0" cellspacing="0">
+        <tr><td id="butong_net_left1" valign="top">
+        <table cellpadding="2" cellspacing="0">
+        <tr align="center">
+        <td><a href="https://www.163.com/dy/article/HMRSJNM20553DIKX.html" target="_blank"><img src="3.jpg"></a></td>
+        <td><a href="https://baijiahao.baidu.com/s?id=1749839711637198384&wfr=spider&for=pc" target="_blank"><img src="4.jpg"></a></td>
+        <td><a href="https://baijiahao.baidu.com/s?id=1750103211820331030&wfr=spider&for=pc" target="_blank"><img src="5.jpg"></a></td>
+        </tr>
+        </table>
+        </td>
+        <td id="butong_net_left2" valign="top"></td>
+        </tr>
+        </table>
+        </div>
+        <script>
+        var speed=20
+        butong_net_left2.innerHTML=butong_net_left1.innerHTML
+        function Marquee3(){
+        if(butong_net_left2.offsetWidth-butong_net_left.scrollLeft<=0)
+        butong_net_left.scrollLeft-=butong_net_left1.offsetWidth
+        else{
+        butong_net_left.scrollLeft++
+        }
+        }
+        var MyMar3=setInterval(Marquee3,speed)
+        butong_net_left.οnmοuseοver=function() {clearInterval(MyMar3)}
+        butong_net_left.οnmοuseοut=function() {MyMar3=setInterval(Marquee3,speed)}
+        </script>
+        
+    <div id="overflowTest" style="position: absolute; top: 235px; right:7%;">
+    <table style="background-color:#3f3d3d;opacity:0.7;width: 640px;font-size: 30px;color: white;"cellpadding="20">
+        <tr>
+            <td><a id="4">最新</a></td>
+            <td><a id="5">新闻</a></td>
+            <td><a id="6">微博</a></td>
+            <td><a id="7">活动</a></td>
+        </tr>
+        <tr>
+            <th colspan="4"><a href="4"><a href="http://k.sina.com.cn/article_6090644822_m16b07dd56033014vrz.html" target="_blank">谭松韵近五年90花收视冠军</a></a></th>
+        </tr>
+        <tr>
+            <th colspan="4"><a href="http://k.sina.com.cn/article_6179910604_m17059f3cc03301mkhu.html" target="_blank">谭松韵近五年90花收视冠军</a></th>
+        </tr>
+        <tr>
+            <th colspan="4"><a href="5"><a href="https://3g.163.com/dy/article/HMCA03QN0553BFQP.html" target="_blank">谭松韵终于换风格了</a></a></th>
+        </tr>
+        <tr>
+            <th colspan="4"><a href="https://yule.sohu.com/a/608185137_121348085" target="_blank"> 谭松韵后援团回应对庭审环节质疑</a></th>
+        </tr>
+        <tr>
+            <th colspan="4"><a href="https://yule.sohu.com/a/608185435_121348830" target="_blank"> 谭松韵母亲案件，后援团弄巧成拙</a></th>
+        </tr>
+        <tr>
+            <th colspan="4"><a href="http://k.sina.com.cn/article_5084904517_m12f157c4503301bgov.html" target="_blank">哇哦，谭松韵也太厉害了吧！</a></th>
+        </tr>
+    </table>
+    <style>
+        a:link {color:white;}
+        a:visited {color:white;} 
+        a:hover {color:#dca422;}
+        a:active {color:#84b860;}  
+    </style>
+    <style>
+        #overflowTest {
+        height: 480px;
+        overflow: scroll;
+        }
+    </style>
+    </div>
+
+</body>
+</html>

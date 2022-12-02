@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>人间四月谭松韵</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 100%;
+            height: 100%;
+            position:fixed;
+        }
+
+        video {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            min-width: 100%;  
+            min-height: 100%;  
+            height: auto;  
+            width: auto;  
+            filter: blur(6px); 
+        }
+
+        div {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: -11;
+        }
+    </style>
+</head>
+<body>
+    <audio autoplay="autoplay" loop="loop" preload="auto"src="谭松韵 - Like A Breeze.mp3">
+    </audio>
+    <div class="box">
+        <video autoplay loop muted="" preload controlsList="nodownload nofullscreen"
+        disablePictureInPicture>
+            <source src="1.mp4" type="video/mp4" />
+        </video>
+    </div>
+    <a href=""onMouseover="
+    alert('请打开浏览器媒体音频自动播放功能再食用');
+    document.bgColor='black';document.fgColor='white';">
+    <div class="font">
+        <p style="text-align:center;
+        padding-top: 17%;
+        margin: 0 auto;">
+                <span style="color:#F2D2B8 ;font-size:60px;"><strong>人间</strong></span>
+                <span style="color:white ;font-size:80px;"><strong>四月</strong></span><br>
+        </p>
+        <p style="text-align:center;
+        padding: 0%;
+        margin: 0 auto;">   
+                 <span style="color:#748b90 ;font-size:70px;"><strong>谭松韵</strong></span><br>
+        </p>
+    </div>
+    </a>
+</body>
+<body>
+    <p style="text-align:center;
+        padding-top: 30%;
+        margin: 0 auto;"> 
+    <a href="首页.html">
+        <img src ="2.jpg" width="8%" title="进入首页">
+        </a>
+    </p>
+</body>
+</html>
