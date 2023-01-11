@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>修改密码</title>
+    <link rel="short icon" href="mi.png">
+    <link rel="stylesheet" href="zhuce.css">
+</head>
+<body>
+    <div id="root">
+        <div class="body-container">
+            <div class="mhy-container">
+                <img src="mihoyo-logo.png" alt="" class="mihoyo-logo">
+                <div class="mhy-register">
+                    <header class="zhuce-header">
+                        <h2>设置新密码</h2>
+                        <div class="header-down">
+                            <p style="font-weight: 400;">| 请设置新的密码</p>
+                        </div>
+                    </header>
+
+                    <form action="">
+                        <div class="zhuce-form-input">
+                            <div class="input-container">
+                                <input class="zhuce-input-item" type="password" id="pwd" placeholder="密码为8-15位(不能全是字母或数字)"/>
+                            </div>
+                        </div>
+                        <div class="zhuce-form-input">
+                            <div class="input-container">
+                                <input class="zhuce-input-item" type="password" id="pwd2" placeholder="确认密码"/>
+                            </div>
+                        </div>
+                    </form>
+
+                    <form action="" class="register-btn">
+                        <input class="zhuce-submit" type="submit" id="log" value="确 认"/>
+                        <script>
+                            let pwd1=document.getElementById("pwd");
+                            let pwd2=document.getElementById("pwd2");
+                            let btn1=document.getElementById("log");
+                
+                            btn1.onclick=function(){
+                                if(pwd.value==""||pwd2.value==""){
+                                    alert("信息不能为空");
+                                }
+                                else if(pwd1.value==pwd2.value){ 
+                                    localStorage.setItem('pwd1',pwd.value);
+                                    alert("修改完成");
+                                    window.location.href="index.html";
+                                    window.event.returnValue=false;
+                                }else{
+                                    alert("两次输入的密码不一样");
+                                }
+                            }
+                        </script>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <footer>
+            <div class="mihoyo-footer">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <div class="logo-box">
+                            <img src="mihoyo-logo.png" alt="" class="logo-big">
+                        </div>
+                    </div>
+                    <div class="footer-info">
+                        <div class="footer-link">
+                            <div>
+                                <span class="protocol1">隐私政策</span>
+                                <span class="protocol">|</span>
+                                <span class="protocol">自律公约</span>
+                                <span class="protocol">|</span>
+                                <span class="protocol">廉政举报</span>
+                                <span class="protocol">|</span>
+                                <span class="protocol">联系我们</span>
+                                <span class="protocol">|</span>
+                                <span class="protocol">加入我们</span>
+                                <span class="protocol">|</span>
+                                <span class="protocol"><a href="report.html" style="color: #999;" target="_blank">报告</a></span>
+                            </div>
+                        </div>
+                        <div class="footer-advice">
+                            <p>
+                                健康游戏忠告：抵制不良游戏，拒绝盗版游戏。注意自我保护，谨防受骗上当。适度游戏益脑，沉迷游戏伤身。合理安排时间，享受健康生活。
+                            </p>
+                            <div class="inline-info">
+                                <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=沪公网安备31010402001113号" target="_blank" style="color: #999;">
+                                    沪公网安备31010402001113号
+                                </a>
+                                <span class="split-line">|</span>
+                                <span class="footer-filing-item">增值电信业务经营许可证：沪B2-20190555</span>
+    
+                            </div>
+                        </div>
+                        <div class="footer-filing">
+                            <div class="footer-filing-tip">
+                                <span>互联网违法不良信息举报邮箱: tousu@mihoyo.com</span>
+                                <span>互联网违法不良信息举报电话: 021-60371750 （工作时间：每天10点 - 20点）</span>
+                            </div>
+                        </div>
+                        <div class="footer-tip">
+                            亲爱的市民朋友，上海警方反诈劝阻电话“962110”系专门针对避免您财产被骗受损而设，请您一旦收到来电，立即接听
+                        </div>
+                        <div class="footer-filing-content">
+                            <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank" style="color: #999;">
+                                沪ICP备19018275号-4
+                            </a>
+                            <span class="split-line">|</span>
+                            <span class="footer-filing-item">沪网文〔2022〕1334-052号</span>
+                        </div>
+                        <div class="guanai-phone">
+                            未成年成长关爱热线：021-60371740 （服务时间：8:00-23:00）
+                        </div>
+                        <div class="footer-phone">
+                            <div class="mihoyo-copyright">©miHoYo | 上海米哈游影铁科技有限公司</div>
+                            <div class="complaint-phone">客服电话：400-666-6312</div>
+                        </div>
+                        <div class="footer-icon">
+                            <a href="https://v.yunaq.com/certificate?domain=www.mihoyo.com&amp;from=label&amp;code=90020" target="_blank">
+                                <img src="icon1.png" alt="">
+                            </a>
+                            <a href="http://www.shjbzx.cn/" target="_blank">
+                                <img src="icon2.png" alt="">
+                            </a>
+                            <a href="https://www.12377.cn/" target="_blank">
+                                <img src="icon3.png" alt="">
+                            </a>
+                            <a href="http://sq.ccm.gov.cn:80/ccnt/sczr/service/business/emark/toDetail/8955A9DDE1FF8B6CE053010A14ACA87F" target="_blank">
+                                <img src="icon4.png" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="icon5.png" alt="">
+                            </a>
+                            <a href="http://wap.scjgj.sh.gov.cn/businessCheck/verifKey.do?showType=extShow&amp;serial=9031000020190314100540000004452331-SAIC_SHOW_310000-20200120150237277642&amp;signData=MEYCIQCjn9IhIKfUHjPlx9W6xrYPZ4GA73Blopwp0iEzSX0OHQIhAOZm3tnlWLrgVXMtvgp5OibauIgiAa+2d+MQ7qzMIm6t" target="_blank">
+                                <img src="icon6.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>   
+</body>
+</html>
