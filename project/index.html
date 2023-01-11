@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>米哈游-TECH OTAKUS SAVE THE WORLD</title>
+    <link rel="short icon" href="mi.png">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="part.css">
+</head>
+<body>
+
+    <!--导航栏-->
+    <div class="header">
+        <!--播放器-->
+        <audio src="bg.mp3" id="music" autoplay loop>
+        </audio>
+        <a href="javascript:playPause();">
+            <img src="bfq.png" class="audio-controller" data-original="bfq2.png" id="music_btn">
+        </a> 
+        <script src="audio.js"></script>
+
+        <!--logo-->
+        <div class="site-logo">
+            <img src="mihoyo-logo.png" style="width: 85.95px;height: 29.95px;">
+        </div>
+        <!--logo end-->
+
+
+        <div class="navwrap">
+            <div class="navbar">
+                <a to="/" class="navitem" style="text-shadow: 0 0 10px #69e0ff,0 0 20px #69e0ff,0 0 40px #69e0ff; color: rgb(255, 255, 255);">首页</a>
+                <a href="news.html" class="navitem">新闻</a>
+                <a href="character.html" class="navitem">产品</a>
+                <a href="map.html" class="navitem">发展</a>
+                <div class="tapdown">
+                    <a href="https://www.miyoushe.com/" class="navitem" target="_blank">社区</a>
+                    <ul class="dis">
+                        <li><a href="https://www.miyoushe.com/" target="_blank">米游社</a></li>
+                        <li><a href="know.html">了解我们</a></li>
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="header-right">
+            <a href="https://jiazhang.mihoyo.com" class="cz" target="_blank">
+                <span>成长关爱系统</span>
+                <img src="love.png" alt="">
+            </a>
+            <div class="denglu">
+                <button class="denglu-btn" id="denglu-btn1" onclick="denglushow()">
+                    <span>登录</span>
+                    
+                    <img src="denglu.png" alt="">
+                </button>
+                <div id="denglublack">
+                    <div class="dengluwin">
+                        <div class="firmlogo">
+                            <img src="mihoyo.png" alt="">
+                        </div>
+                        <div class="dengluclose_btn">
+                            <button class="byebye" onclick="dengluhide()"></button>
+                        </div> 
+                        <div class="denglu-content">
+                        <div id="tab">
+                            <div id="tabNav">
+                                <ul>
+                                    <li class="active">
+                                        <div class="li1">
+                                            验证码登录
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="li1">
+                                            密码登录
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="main">
+                                <div class="item show">
+                                    <!-- 验证码登录 -->
+                                    <form class="denglu-form" action="#">
+                                        <div>
+                                            <input class="acc" type="text" id="username2" value="" placeholder="手机号注册/登录"/>
+                                        </div>
+                                        <div>
+                                            <input class="acc" type="pass" id="yzm" placeholder="验证码"/>
+                                            <button class="input-inner" onclick=Num() >获取验证码</button>
+                                            <script>
+                                                function Num()
+                                                {
+                                                    if(username2.value==""){
+                                                        alert("手机号格式错误");
+                                                    }
+                                                    else{
+                                                        document.getElementById("yzm").value=parseInt(Math.random()*888888+111111);
+                                                    } 
+                                                }
+                                            </script>
+                                        </div>
+                                        
+                                    </form>
+                                    <from  action="#">
+                                            <input class="submit" type="submit" id="log2" value="登录"/>
+                                    </from>
+                                    <script>
+                                        let username2=document.getElementById("username2");
+                                        let yzm=document.getElementById("yzm");
+                                        let btn1=document.getElementById("log2");
+                                        btn1.onclick=function(){
+                                            if(yzm.value==''){
+                                                alert("请输入验证码")
+                                            }
+                                            else if(username2.value==localStorage.getItem('username1')){
+                                                alert("登录成功");
+                                                window.location.href="index.html"	
+                                            }
+                                            else{
+                                            alert("账号或验证码错误");
+                                            }
+                                        }
+                                    </script>
+                                    
+                                    <div class="down">
+                                        <button id="question" onclick="showqu()">登录遇到问题？</button>
+                                        <div id="quover">
+                                            <div class="ques">
+                                              <div class="qu-content">
+                                                <button class="xx" onclick="hidequ()"></button>
+                                                <div class="ques-title">遇到问题</div>
+                                              <div class="question_btn">
+                                                <a href="forget.html">
+                                                    <button class="meet-btn">忘记密码</button>
+                                                </a> 
+                                                <a href="https://user.mihoyo.com/#/questions?game=sdk" target="_blank">
+                                                    <button class="meet-btn btn2">常见问题</button>
+                                                </a>
+                                              </div>
+                                            </div>
+                                            </div>
+                                          </div>
+                                          <script>
+                                            function showqu(){
+                                            var overlay = document.getElementById("quover");
+                                            overlay.style.display = "block";
+                                          }
+                                          function hidequ(){
+                                            var overlay = document.getElementById("quover");
+                                            overlay.style.display = "none";
+                                          }
+                                          </script>
+                                        <a href="zhuce.html" class="zhuce">立即注册</a>
+                                        
+                                    </div>
+                                    <div class="down-yzm">
+                                        <p class="yzm-tip">
+                                            <span>未注册的手机验证后将自动登录。注册/登录即代表您同意并遵守</span>
+                                            <a target="_blank" href="https://user.mihoyo.com/#/agreement?hideBack=true">《米哈游通行证用户服务协议》</a>
+                                            <a target="_blank" href="https://user.mihoyo.com/#/privacyAgreement?hideBack=true">《米哈游通行证用户个人信息及隐私保护政策》</a>
+                                        </p>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <!-- 密码登录 -->
+                                <div class="item">
+                                    
+                                    <form class="denglu-form" action="#">
+                                        <div><input class="acc" type="text" id="username" placeholder="手机号/邮箱"/></div>
+                                        <div><input class="acc" type="password" id="pwd" placeholder="密码"/></div>   
+                                    </form>
+                                    <from  action="#">
+                                            <input class="submit" type="submit" id="log" value="登录"/>
+                                    </from>
+                                    
+                                    <div class="down">
+                                        <button id="question" onclick="showqu2()">登录遇到问题？</button>
+                                        <div id="quover2">
+                                            <div class="ques">
+                                              <div class="qu-content">
+                                                <button class="xx" onclick="hidequ2()"></button>
+                                                <div class="ques-title">遇到问题</div>
+                                              <div class="question_btn">
+                                                <a href="forget.html">
+                                                    <button class="meet-btn">忘记密码</button>
+                                                </a> 
+                                                <a href="https://user.mihoyo.com/#/questions?game=sdk" target="_blank">
+                                                    <button class="meet-btn btn2">常见问题</button>
+                                                </a>
+                                              </div>
+                                            </div>
+                                            </div>
+                                          </div>
+                                          <script>
+                                            function showqu2(){
+                                                var overlay = document.getElementById("quover2");
+                                                overlay.style.display = "block";
+                                            }
+                                            function hidequ2(){
+                                                var overlay = document.getElementById("quover2");
+                                                overlay.style.display = "none";
+                                            }
+                                          </script>
+                                        <a href="zhuce.html" class="zhuce">立即注册</a>
+                                    </div>
+                                    <div class="down-yzm">
+                                        <p class="yzm-tip">
+                                            <span>登录即代表您同意并遵守</span>
+                                            <a target="_blank" href="https://user.mihoyo.com/#/agreement?hideBack=true">《米哈游通行证用户服务协议》</a>
+                                            <a target="_blank" href="https://user.mihoyo.com/#/privacyAgreement?hideBack=true">《米哈游通行证用户个人信息及隐私保护政策》</a>
+                                        </p>
+                                        </div>
+                                </div>
+                                
+                                <script>
+                                    let username=document.getElementById("username");
+                                    let pwd=document.getElementById("pwd");
+                                    let btn=document.getElementById("log");
+                                    
+                                    
+                                    btn.onclick=function(){
+
+                                        
+                                        
+                                        
+                                        if(username.value==localStorage.getItem('username1') && pwd.value==localStorage.getItem('pwd1')){
+                                            alert("登录成功");
+                                            window.location.href="index.html"
+                                                
+                                        }else{
+                                            alert("账号或密码错误");
+                                        }
+                                    }
+                                </script>
+                                </div>
+                            </div>
+                        </div>
+                        <script>
+                            let tab=document.querySelector("#tabNav");
+                            let li=tab.querySelectorAll("li");
+                            let item=document.querySelectorAll(".item");
+                            for(let i=0;i<li.length;i++){
+                                li[i].onclick=function(){
+                                    li.forEach(value=>{value.className='';});
+                                    li[i].className='active';
+                                    item.forEach(value=>{value.className='item'});
+                                    item[i].className='item show';
+                                }
+                            }
+                        </script>		
+                    </div>
+                    
+                </div>  
+                </div>
+            </div>
+                  <script>
+                     function denglushow(){
+                        var overlay = document.getElementById("denglublack");
+                        denglublack.style.display = "block";	
+                    }
+                    function dengluhide(){
+                        var overlay = document.getElementById("denglublack");
+                        denglublack.style.display = "none";
+                    }
+
+                  </script>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!--导航栏end-->
+
+    <!--首页-->
+    <section class="shouye">
+    
+    <!--背景-->
+        <div class="bg">
+            <div class="mihoyo-bg">
+                <video src="bg.mp4" loop autoplay style="width: 1536px;height:864px" muted></video>
+            </div>  
+        </div>
+    <!--背景end-->
+
+    <!--内容物-->
+        <div class="poster-sign">
+
+            <!--播放器-->
+            <div class="video-entry">
+                <div class="video">
+                        <button class="poster-video" onclick="videoshow();playVid()">
+                        </button>
+                        <button class="poster-video2" onclick="videoshow();playVid()">
+                        </button>
+                </div>
+            </div>
+            <div id="blackbg">
+                <div class="videoplay">
+                    <div class="lxz">
+                        <video id="yxr" src="https://webstatic.mihoyo.com/upload/op-public/2021/08/12/72d301e9cf955eee821909d756220686_2232999530661425548.mp4" controls width="100%" height="auto" ></video>
+                        <div class="video_btn">
+                            <button class="videoclose_btn" onclick="videohide();pauseVid()"></button>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+            <script>
+                var music = document.getElementById('music');    
+                var music_btn = document.getElementById('music_btn');    
+                function videoshow(){
+                    var overlay = document.getElementById("blackbg");
+                    overlay.style.display = "block";
+                    music.pause();    
+                    music_btn.src = 'bfq2.png';
+                }
+                function videohide(){
+                    var overlay = document.getElementById("blackbg");
+                    overlay.style.display = "none";
+                    music.play();    
+                    music_btn.src = 'bfq.png';  
+                }
+                var x = document.getElementById("yxr")
+                function playVid(){ 
+                    x.play();
+                } 
+                function pauseVid(){ 
+                    x.pause(); 
+                } 
+            </script>
+
+            <!--播放器end-->
+
+            <!--指引箭头-->
+            <div class="arrow">
+                <div class="poster-arrow arrow1"></div>
+                <div class="poster-arrow arrow2"></div>
+                <div class="poster-arrow arrow3"></div>
+            </div>
+            <!--指引箭头end-->
+
+
+
+        </div>
+    <!--内容物end-->
+
+
+
+    </section>
+    <!--首页end-->
+
+    <!--新闻部分-->
+    <section class="news">
+        <div class="decoration">
+            <img src="news-decoration.png" alt="">
+        </div>
+        <div class="line">
+            <img src="news-line.png" alt="">
+        </div>
+
+        <h3>新闻动态</h3>
+
+        <!-- 主体 -->
+
+        <div class="news-main">
+            <div class="swiper-container">
+
+                <div class="swiper-box">
+				    <ul id="imglist">
+				        <li>
+                            <a href="https://www.mihoyo.com/news/103569" target="_blank"><img src="news1.jpg" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="https://www.mihoyo.com/news/103570" target="_blank"><img src="news2.jpg" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="https://www.mihoyo.com/news/103568" target="_blank"><img src="news3.jpeg" alt=""></a>
+                        </li>
+				    </ul>
+					<!-- 轮播点点 -->
+				    <ul id="btnlist">
+				        <li class="btn active"></li>
+				        <li class="btn"></li>
+				        <li class="btn"></li>
+				    </ul>
+				</div>
+                <script>
+                var index = 0;
+                var imglist = document.getElementById('imglist');
+                var btnlist = document.getElementById('btnlist');
+                var arrbtn = btnlist.getElementsByTagName('li');
+                function btnchange(index) {
+                    for (var i = 0; i < 3; i++) {
+                        if (i == index) {
+                            arrbtn[i].style.backgroundColor = '#74D5EE';
+                        }
+                        else {
+                            arrbtn[i].style.backgroundColor = 'rgba(0,0,0,0.2)';
+                        }
+                    }
+                }
+                for (var i = 0; i < 3; i++) {
+                    arrbtn[i].num = i;
+                    arrbtn[i].onmouseover = function () {
+                        index = this.num;
+                        imglist.style.left = index * (-580) + 'px';
+                        clearInterval(t);
+                        btnchange(index);
+                        this.onmouseout = function () {
+                            t = setInterval(imgchange, 2000);
+                        }
+                    }
+                }
+                function imgchange() {
+                    if (index == 2)
+                    index = -1;
+                    index++;
+                    imglist.style.left = index * (-580) + 'px';
+                    btnchange(index);
+                }
+                var t = setInterval(imgchange, 2000);
+                </script>
+            </div>
+
+            <div class="news-show">
+
+                <div id="news-tab">
+                    <div id="news-tabNav">
+                        <ul>
+                            <li class="active1">
+                                <span>最新</span>
+                            </li>
+                            <li>
+                                <span>游戏</span>
+                            </li>
+                            <li>
+                                <span>公司</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="newscontent-main">
+                        <div class="news-item" style="display: block;">
+                            <!-- 最新 -->
+                            <div class="main-zuixin">
+
+                                <a href="https://www.mihoyo.com/news/103570" target="_blank" class="news-content-item">
+                                    <div class="news1">
+                                        “你们好，见字如面！”——阅见未名：图书捐赠公益活动
+                                    </div>
+                                    <div>
+                                        2022-11-24
+                                    </div>
+                                </a>
+                                <a href="https://www.mihoyo.com/news/103569" target="_blank" class="news-content-item">
+                                    <div class="news1">
+                                        米哈游荣获“上海文化企业十强”
+                                    </div>
+                                    <div>
+                                        2022-11-24
+                                    </div>
+                                </a>
+                                <a href="https://www.mihoyo.com/news/103568" target="_blank" class="news-content-item">
+                                    <div class="news1">
+                                        米哈游正式通过ISO27001及ISO27701双重认证
+                                    </div>
+                                    <div>
+                                       2022-10-10
+                                    </div>
+                                </a>
+                                <a href="https://www.mihoyo.com/news/101170" target="_blank" class="news-content-item">
+                                    <div class="news1">
+                                        2021年中国互联网综合实力企业百强揭晓 米哈游连续五年上榜
+                                    </div>
+                                    <div>
+                                        2021-11-29
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                             <!-- 游戏 -->
+                             <div class="news-item" style="display: none;">
+                                <a href="https://www.mihoyo.com/news/100593" target="_blank" class="news-content-item">
+                                    <div class="news1">
+                                        米哈游再次入选国家文化出口重点企业 《原神》入选国家文化出口重点项目
+                                    </div>
+                                    <div>
+                                        2021-08-04
+                                    </div>
+                                </a>
+                                <a href="https://www.mihoyo.com/news/100595" target="_blank" class="news-content-item">
+                                    <div class="news1">
+                                        《原神》荣获首届中国游戏创新大赛最佳创新游戏大奖
+                                    </div>
+                                    <div>
+                                        2021-08-02
+                                    </div>
+                                </a>
+                                <a href="https://www.mihoyo.com/news/100613" target="_blank" class="news-content-item">
+                                    <div class="news1">
+                                        《原神》荣获Apple、Google全球年度游戏
+                                    </div>
+                                    <div>
+                                        2020-12-17
+                                    </div>
+                                </a>
+                                <a href="https://www.mihoyo.com/news/100605" target="_blank" class="news-content-item">
+                                    <div class="news1">
+                                        米哈游×黄龙：赋能生态环境保护
+                                    </div>
+                                    <div>
+                                        2020-11-30
+                                    </div>
+                                </a>
+                                
+                            </div>
+                            <!-- 公司 -->
+                            <div class="news-item" style="display: none;">
+                                <a href="https://www.mihoyo.com/news/100594" target="_blank" class="news-content-item">
+                                    <div class="news1">
+                                        希望不熄 薪火永燃｜中国青基会与米哈游成立薪火公益计划
+                                    </div>
+                                    <div>
+                                        2021-07-12
+                                    </div>
+                                </a>
+                                <a href="https://www.mihoyo.com/news/100678" target="_blank" class="news-content-item">
+                                    <div class="news1">
+                                        米哈游携手中国青少年发展基金会：共绘流景，让生命绽放光芒
+                                    </div>
+                                    <div>
+                                        2021-06-09
+                                    </div>
+                                </a>
+                                <a href="https://www.mihoyo.com/news/100977" target="_blank" class="news-content-item">
+                                    <div class="news1">
+                                        米哈游团委成立
+                                    </div>
+                                    <div>
+                                        2021-05-21
+                                    </div>
+                                </a>
+                                <a href="https://www.mihoyo.com/news/100676" target="_blank" class="news-content-item">
+                                    <div class="news1">
+                                        米哈游携手中国法律援助基金会：以法扬善，长乐长安
+                                    </div>
+                                    <div>
+                                        2021-04-15
+                                    </div>
+                                </a>
+    
+                            </div>
+                    </div>
+                   
+                    </div>
+                </div>
+                <script>
+                    var lis=document.querySelector('#news-tabNav ul').querySelectorAll('li');
+                    var divs=document.querySelector('#newscontent-main').querySelectorAll('.news-item');
+                    for(var i=0;i<lis.length;i++){
+                        lis[i].setAttribute('index',i);
+                        lis[i].onclick=function(){
+                            for(var i=0;i<lis.length;i++){
+                                lis[i].className='';
+                            }
+                            this.className='active1';
+                            var index=this.getAttribute('index');
+                            for(var i=0;i<divs.length;i++){
+                                divs[i].style.display='none';
+                            }
+                            divs[index].style.display='block';
+                        }
+                    }
+                </script>		
+            </div>
+            <div class="more">
+                <a href="news.html" class="more-btn">+ 查看全部</a>
+            </div>
+        </div>
+
+
+
+
+        <!-- 主体end -->
+    </section>
+    <!--新闻部分end-->
+
+
+    <!-- 产品 -->
+
+    <section class="product">
+
+        <ul class="product-list">
+
+            <li class="product-list-item">
+                <a href="character.html" class="product-list-a">
+                    <p>崩坏学园2</p>
+                    <div class="product-list-bg">
+                        <img src="bhxy2bg.jpg" alt="">
+                    </div>
+                    <div class="product-list-char" style="background: url(bhxy2bg.jpg) no-repeat center;">
+                        <img src="bhxy2.png" alt="" class="product-img1">
+                        <img src="product-after.png" alt="" class="product-title">
+                        <p>崩坏学园2</p>
+                    </div>
+                </a>
+            </li>
+            <li class="product-list-item">
+                <a href="character-bh3.html" class="product-list-a">
+                    <p>崩坏3</p>
+                    <div class="product-list-bg">
+                        <img src="bh3bg.png" alt="">
+                    </div>
+                    <div class="product-list-char" style="background: url(bh3bg.png) no-repeat center;">
+                        <img src="bh3.png" alt="" class="product-img2">
+                        <img src="product-after.png" alt="" class="product-title">
+                        <p>崩坏3</p>
+                    </div>
+                </a>
+            </li>
+            <li class="product-list-item">
+                <a href="character-wd.html" class="product-list-a">
+                    <p>未定事件簿</p>
+                    <div class="product-list-bg">
+                        <img src="wdsjpbg.jpg" alt="">
+                    </div>
+                    <div class="product-list-char" style="background: url(wdsjpbg.jpg) no-repeat center;">
+                        <img src="wdsjb.png" alt="" class="product-img3">
+                        <img src="product-after.png" alt="" class="product-title">
+                        <p>未定事件簿</p>
+                    </div>
+                </a>
+            </li>
+            <li class="product-list-item">
+                <a href="character-ys.html" class="product-list-a">
+                    <p>原神</p>
+                    <div class="product-list-bg">
+                        <img src="ysbg.jpg" alt="">
+                    </div>
+                    <div class="product-list-char" style="background: url(ysbg.jpg) no-repeat center;">
+                        <img src="ys.png" alt="" class="product-img4">
+                        <img src="product-after.png" alt="" class="product-title">
+                        <p>原神</p>
+                    </div>
+                </a>
+            </li>
+            <li class="product-list-item">
+                <a href="character-xq.html" class="product-list-a">
+                    <p>崩坏：星穹铁道</p>
+                    <div class="product-list-bg">
+                        <img src="xqtdbg.jpg" alt="">
+                    </div>
+                    <div class="product-list-char" style="background: url(xqtdbg.jpg) no-repeat center;">
+                        <img src="xqtd.png" alt="" class="product-img5">
+                        <img src="product-after.png" alt="" class="product-title">
+                        <p>崩坏：星穹铁道</p>
+                    </div>
+                </a>
+            </li>
+            <li class="product-list-item">
+                <a href="character-jql.html" class="product-list-a">
+                    <p>绝区零</p>
+                    <div class="product-list-bg">
+                        <img src="jqlbg.png" alt="">
+                    </div>
+                    <div class="product-list-char" style="background: url(jqlbg.png) no-repeat center;">
+                        <img src="jql.png" alt="" class="product-img6">
+                        <img src="product-after.png" alt="" class="product-title">
+                        <p>绝区零</p>
+                    </div>
+                </a>
+            </li>
+            <li class="product-list-item">
+                <a href="character-mys.html" class="product-list-a">
+                    <p>米游社</p>
+                    <div class="product-list-bg">
+                        <img src="mysbg.jpg" alt="">
+                    </div>
+                    <div class="product-list-char" style="background: url(mysbg.jpg) no-repeat center;">
+                        <img src="mys.png" alt="" class="product-img7">
+                        <img src="product-after.png" alt="" class="product-title">
+                        <p>米游社</p>
+                    </div>
+                </a>
+            </li>
+            <li class="product-list-item">
+                <a href="character-yoyo.html" class="product-list-a">
+                    <p>人工桌面</p>
+                    <div class="product-list-bg">
+                        <img src="rgzmbg.jpg" alt="">
+                    </div>
+                    <div class="product-list-char" style="background: url(rgzmbg.jpg) no-repeat center;">
+                        <img src="rgzm.png" alt="" class="product-img8">
+                        <img src="product-after.png" alt="" class="product-title">
+                        <p>人工桌面</p>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </section>
+
+
+    <!-- 产品end -->
+
+    <!-- 页脚 -->
+    <section class="footer">
+        <div class="mihoyo-footer">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-box">
+                        <img src="mihoyo-logo.png" alt="" class="logo-big">
+                    </div>
+                </div>
+                <div class="footer-info">
+                    <div class="footer-link">
+                        <div>
+                            <span class="protocol1">隐私政策</span>
+                            <span class="protocol">|</span>
+                            <span class="protocol">自律公约</span>
+                            <span class="protocol">|</span>
+                            <span class="protocol">廉政举报</span>
+                            <span class="protocol">|</span>
+                            <span class="protocol">联系我们</span>
+                            <span class="protocol">|</span>
+                            <span class="protocol">加入我们</span>
+                            <span class="protocol">|</span>
+                            <span class="protocol"><a href="report.html" style="color: #fff;" target="_blank">报告</a></span>
+                        </div>
+                    </div>
+                    <div class="footer-advice">
+                        <p>
+                            健康游戏忠告：抵制不良游戏，拒绝盗版游戏。注意自我保护，谨防受骗上当。适度游戏益脑，沉迷游戏伤身。合理安排时间，享受健康生活。
+                        </p>
+                        <div class="inline-info">
+                            <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=沪公网安备31010402001113号" target="_blank" style="color: #999;">
+                                沪公网安备31010402001113号
+                            </a>
+                            <span class="split-line">|</span>
+                            <span class="footer-filing-item">增值电信业务经营许可证：沪B2-20190555</span>
+
+                        </div>
+                    </div>
+                    <div class="footer-filing">
+                        <div class="footer-filing-tip">
+                            <span>互联网违法不良信息举报邮箱: tousu@mihoyo.com</span>
+                            <span>互联网违法不良信息举报电话: 021-60371750 （工作时间：每天10点 - 20点）</span>
+                        </div>
+                    </div>
+                    <div class="footer-tip">
+                        亲爱的市民朋友，上海警方反诈劝阻电话“962110”系专门针对避免您财产被骗受损而设，请您一旦收到来电，立即接听
+                    </div>
+                    <div class="footer-filing-content">
+                        <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank" style="color: #999;">
+                            沪ICP备19018275号-4
+                        </a>
+                        <span class="split-line">|</span>
+                        <span class="footer-filing-item">沪网文〔2022〕1334-052号</span>
+                    </div>
+                    <div class="guanai-phone">
+                        未成年成长关爱热线：021-60371740 （服务时间：8:00-23:00）
+                    </div>
+                    <div class="footer-phone">
+                        <div class="mihoyo-copyright">©miHoYo | 上海米哈游影铁科技有限公司</div>
+                        <div class="complaint-phone">客服电话：400-666-6312</div>
+                    </div>
+                    <div class="footer-icon">
+                        <a href="https://v.yunaq.com/certificate?domain=www.mihoyo.com&amp;from=label&amp;code=90020" target="_blank">
+                            <img src="icon1.png" alt="">
+                        </a>
+                        <a href="http://www.shjbzx.cn/" target="_blank">
+                            <img src="icon2.png" alt="">
+                        </a>
+                        <a href="https://www.12377.cn/" target="_blank">
+                            <img src="icon3.png" alt="">
+                        </a>
+                        <a href="http://sq.ccm.gov.cn:80/ccnt/sczr/service/business/emark/toDetail/8955A9DDE1FF8B6CE053010A14ACA87F" target="_blank">
+                            <img src="icon4.png" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="icon5.png" alt="">
+                        </a>
+                        <a href="http://wap.scjgj.sh.gov.cn/businessCheck/verifKey.do?showType=extShow&amp;serial=9031000020190314100540000004452331-SAIC_SHOW_310000-20200120150237277642&amp;signData=MEYCIQCjn9IhIKfUHjPlx9W6xrYPZ4GA73Blopwp0iEzSX0OHQIhAOZm3tnlWLrgVXMtvgp5OibauIgiAa+2d+MQ7qzMIm6t" target="_blank">
+                            <img src="icon6.png" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 页脚end -->
+</body>
+</html>
