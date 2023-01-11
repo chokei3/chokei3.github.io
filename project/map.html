@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>米哈游-TECH OTAKUS SAVE THE WORLD</title>
+    <link rel="short icon" href="mi.png">
+    <link rel="stylesheet" href="part.css">
+    <link rel="stylesheet" href="map.css">
+</head>
+<body>
+    
+    <!--导航栏-->
+    <div class="header">
+        <!--播放器-->
+        <audio src="bg.mp3" id="music" autoplay loop>
+        </audio>
+        <a href="javascript:playPause();">
+            <img src="bfq.png" class="audio-controller" data-original="bfq2.png" id="music_btn">
+        </a> 
+        <script src="audio.js"></script>
+
+        <!--logo-->
+        <div class="site-logo">
+            <img src="mihoyo-logo.png" style="width: 85.95px;height: 29.95px;">
+        </div>
+        <!--logo end-->
+
+
+        <div class="navwrap">
+            <div class="navbar">
+                <a href="index.html" class="navitem">首页</a>
+                <a href="news.html" class="navitem">新闻</a>
+                <a href="character.html" class="navitem">产品</a>
+                <a to="/" class="navitem"  style="text-shadow: 0 0 10px #69e0ff,0 0 20px #69e0ff,0 0 40px #69e0ff; color: rgb(255, 255, 255);">发展</a>
+                <div class="tapdown">
+                    <a href="https://www.miyoushe.com/" class="navitem" target="_blank">社区</a>
+                    <ul class="dis">
+                        <li><a href="https://www.miyoushe.com/" target="_blank">米游社</a></li>
+                        <li><a href="know.html">了解我们</a></li>
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="header-right">
+            <a href="https://jiazhang.mihoyo.com" class="cz" target="_blank">
+                <span>成长关爱系统</span>
+                <img src="love.png" alt="">
+            </a>
+            <div class="denglu">
+                <button class="denglu-btn" onclick="denglushow()">
+                    <span>登录</span>
+                    
+                    <img src="denglu.png" alt="">
+                </button>
+                <div id="denglublack">
+                    <div class="dengluwin">
+                        <div class="firmlogo">
+                            <img src="mihoyo.png" alt="">
+                        </div>
+                        <div class="dengluclose_btn">
+                            <button class="byebye" onclick="dengluhide()"></button>
+                        </div> 
+                        <div class="denglu-content">
+                        <div id="tab">
+                            <div id="tabNav">
+                                <ul>
+                                    <li class="active">
+                                        <div class="li1">
+                                            验证码登录
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="li1">
+                                            密码登录
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="main">
+                                <div class="item show">
+                                    <!-- 验证码登录 -->
+                                    <form class="denglu-form" action="#">
+                                        <div>
+                                            <input class="acc" type="text" id="username2" value="" placeholder="手机号注册/登录"/>
+                                        </div>
+                                        <div>
+                                            <input class="acc" type="pass" id="yzm" placeholder="验证码"/>
+                                            <button class="input-inner" onclick=Num() >获取验证码</button>
+                                            <script>
+                                                function Num()
+                                                {
+                                                    if(username2.value==""){
+                                                        alert("手机号格式错误");
+                                                    }
+                                                    else{
+                                                        document.getElementById("yzm").value=parseInt(Math.random()*888888+111111);
+                                                    } 
+                                                }
+                                            </script>
+                                        </div>
+                                        
+                                    </form>
+                                    <from  action="#">
+                                            <input class="submit" type="submit" id="log2" value="登录"/>
+                                    </from>
+                                    <script>
+                                        
+                                        let username2=document.getElementById("username2");
+                                        let yzm=document.getElementById("yzm");
+                                        let btn1=document.getElementById("log2");
+                                        btn1.onclick=function(){
+                                            if(yzm.value==''){
+                                                alert("请输入验证码")
+                                            }
+                                            else if(username2.value==localStorage.getItem('username1')){
+                                                alert("登录成功");
+                                                window.location.href="index.html"	
+                                            }
+                                            else{
+                                            alert("账号或验证码错误");
+                                            }
+                                        }
+                                    </script>
+                                    
+                                    <div class="down">
+                                        <button id="question" onclick="showqu()">登录遇到问题？</button>
+                                        <div id="quover">
+                                            <div class="ques">
+                                              <div class="qu-content">
+                                                <button class="xx" onclick="hidequ()"></button>
+                                                <div class="ques-title">遇到问题</div>
+                                              <div class="question_btn">
+                                                <a href="forget.html">
+                                                    <button class="meet-btn">忘记密码</button>
+                                                </a> 
+                                                <a href="https://user.mihoyo.com/#/questions?game=sdk" target="_blank">
+                                                    <button class="meet-btn btn2">常见问题</button>
+                                                </a>
+                                              </div>
+                                            </div>
+                                            </div>
+                                          </div>
+                                          <script>
+                                            function showqu(){
+                                            var overlay = document.getElementById("quover");
+                                            overlay.style.display = "block";
+                                          }
+                                          function hidequ(){
+                                            var overlay = document.getElementById("quover");
+                                            overlay.style.display = "none";
+                                          }
+                                          </script>
+                                        <a href="zhuce.html" class="zhuce">立即注册</a>
+                                        
+                                    </div>
+                                    <div class="down-yzm">
+                                        <p class="yzm-tip">
+                                            <span>未注册的手机验证后将自动登录。注册/登录即代表您同意并遵守</span>
+                                            <a target="_blank" href="https://user.mihoyo.com/#/agreement?hideBack=true">《米哈游通行证用户服务协议》</a>
+                                            <a target="_blank" href="https://user.mihoyo.com/#/privacyAgreement?hideBack=true">《米哈游通行证用户个人信息及隐私保护政策》</a>
+                                        </p>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <!-- 密码登录 -->
+                                <div class="item">
+                                    
+                                    <form class="denglu-form" action="#">
+                                        <div><input class="acc" type="text" id="username" placeholder="手机号/邮箱"/></div>
+                                        <div><input class="acc" type="password" id="pwd" placeholder="密码"/></div>   
+                                    </form>
+                                    <from  action="#">
+                                            <input class="submit" type="submit" id="log" value="登录"/>
+                                    </from>
+                                    
+                                    <div class="down">
+                                        <button id="question" onclick="showqu2()">登录遇到问题？</button>
+                                        <div id="quover2">
+                                            <div class="ques">
+                                              <div class="qu-content">
+                                                <button class="xx" onclick="hidequ2()"></button>
+                                                <div class="ques-title">遇到问题</div>
+                                              <div class="question_btn">
+                                                <a href="forget.html">
+                                                    <button class="meet-btn">忘记密码</button>
+                                                </a> 
+                                                <a href="https://user.mihoyo.com/#/questions?game=sdk" target="_blank">
+                                                    <button class="meet-btn btn2">常见问题</button>
+                                                </a>
+                                              </div>
+                                            </div>
+                                            </div>
+                                          </div>
+                                          <script>
+                                            function showqu2(){
+                                                var overlay = document.getElementById("quover2");
+                                                overlay.style.display = "block";
+                                            }
+                                            function hidequ2(){
+                                                var overlay = document.getElementById("quover2");
+                                                overlay.style.display = "none";
+                                            }
+                                          </script>
+                                        <a href="zhuce.html" class="zhuce">立即注册</a>
+                                    </div>
+                                    <div class="down-yzm">
+                                        <p class="yzm-tip">
+                                            <span>登录即代表您同意并遵守</span>
+                                            <a target="_blank" href="https://user.mihoyo.com/#/agreement?hideBack=true">《米哈游通行证用户服务协议》</a>
+                                            <a target="_blank" href="https://user.mihoyo.com/#/privacyAgreement?hideBack=true">《米哈游通行证用户个人信息及隐私保护政策》</a>
+                                        </p>
+                                        </div>
+                                </div>
+                                
+                                <script>
+                                    let username=document.getElementById("username");
+                                    let pwd=document.getElementById("pwd");
+                                    let btn=document.getElementById("log");
+                                    
+                                    
+                                    btn.onclick=function(){
+
+                                        
+                                        
+                                        
+                                        if(username.value==localStorage.getItem('username1') && pwd.value==localStorage.getItem('pwd1')){
+                                            alert("登录成功");
+                                            window.location.href="index.html"
+                                                
+                                        }else{
+                                            alert("账号或密码错误");
+                                        }
+                                    }
+                                </script>
+                                </div>
+                            </div>
+                        </div>
+                        <script>
+                            let tab=document.querySelector("#tabNav");
+                            let li=tab.querySelectorAll("li");
+                            let item=document.querySelectorAll(".item");
+                            for(let i=0;i<li.length;i++){
+                                li[i].onclick=function(){
+                                    li.forEach(value=>{value.className='';});
+                                    li[i].className='active';
+                                    item.forEach(value=>{value.className='item'});
+                                    item[i].className='item show';
+                                }
+                            }
+                        </script>		
+                    </div>
+                    
+                </div>  
+                </div>
+            </div>
+                  <script>
+                    function denglushow(){
+                        var overlay = document.getElementById("denglublack");
+                        denglublack.style.display = "block";
+                    }
+                    function dengluhide(){
+                        var overlay = document.getElementById("denglublack");
+                        denglublack.style.display = "none";
+                    }
+                  </script>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!--导航栏end-->
+
+    <!-- 主页 -->
+    <section class="main">
+
+        <div id="open">
+            <div class="open-content">
+                <div class="open1"></div>
+                <div class="open2"></div>
+                <div class="open3"></div>
+                <div class="open4"></div>
+                <a href="javascript:maphide();" class="open-btn">点击进入</a>
+            </div>
+            
+        </div>
+        <script>
+            function maphide(){
+                    document.getElementById("open").style.display = "none";
+                }
+        </script>
+
+        <div class="map-side">
+            <img src="news-line.png" alt="">
+        </div>
+        <div class="map-decoration">
+            <img src="map-side.png" alt="">
+        </div>
+
+
+        <div class="map-shell">
+            <!-- 1 -->
+            <div class="shell-image">
+                <img src="fly.png" alt="" class="mihoyo-map">
+            </div>
+            <div class="shell-heading">
+                <h1>米哈游创始团队推出独立游戏《FlyMe2theMoon》</h1>
+            </div>
+            <div class="shell-text">
+                <h1>2012</h1>
+            </div>
+
+            <!-- 2 -->
+            <div class="shell-image">
+                <img src="bhxy.png" alt="" class="mihoyo-map">
+            </div>
+            <div class="shell-heading">
+                <h1>上线《崩坏学园》</h1>
+            </div>
+            <div class="shell-text">
+                <h1>2014</h1>
+            </div>
+
+            <!-- 3 -->
+            <div class="shell-image">
+                <img src="map-bhxy2.png" alt="" class="mihoyo-map">
+            </div>
+            <div class="shell-heading">
+                <h1>推出Q版射击手游《崩坏学园2》</h1>
+            </div>
+            <div class="shell-text">
+                <h1>2016</h1>
+            </div>
+
+            <!-- 4 -->
+            <div class="shell-image">
+                <img src="map-bh3.png" alt="" class="mihoyo-map">
+            </div>
+            <div class="shell-heading">
+                <h1>推出3D动作手游《崩坏3》</h1>
+            </div>
+            <div class="shell-text">
+                <h1>2018</h1>
+            </div>
+
+            <!-- 5 -->
+            <div class="shell-image">
+                <img src="map-mys.png" alt="" class="mihoyo-map">
+            </div>
+            <div class="shell-heading">
+                <h1>推出社区产品《米游社》</h1>
+            </div>
+            <div class="shell-text">
+                <h1>2020</h1>
+            </div>
+
+            <!-- 6 -->
+            <div class="shell-image">
+                <img src="map-wd.png" alt="" class="mihoyo-map">
+            </div>
+            <div class="shell-heading">
+                <h1>推出女性向手游 《未定事件簿》</h1>
+            </div>
+            <div class="shell-text">
+                <h1>2020.08</h1>
+            </div>
+
+            <!-- 7 -->
+            <div class="shell-image">
+                <img src="map-yoyo.png" alt="" class="mihoyo-map">
+            </div>
+            <div class="shell-heading">
+                <h1>推出鹿鸣相关项目《人工桌面》</h1>
+            </div>
+            <div class="shell-text">
+                <h1>2020.09</h1>
+            </div>
+
+            <!-- 8 -->
+            <div class="shell-image">
+                <img src="map-ys.png" alt="" class="mihoyo-map">
+            </div>
+            <div class="shell-heading">
+                <h1>全球多平台发行开放世界游戏《原神》                </h1>
+            </div>
+            <div class="shell-text">
+                <h1>2021</h1>
+            </div>
+
+            <!-- 9 -->
+            <div class="shell-image">
+                <img src="map-xq.png" alt="" class="mihoyo-map">
+            </div>
+            <div class="shell-heading">
+                <h1>公布银河冒险策略类游戏《崩坏：星穹铁道》</h1>
+            </div>
+            <div class="shell-text">
+                <h1>敬请期待</h1>
+            </div>
+
+            <!-- 10 -->
+            <div class="shell-image">
+                <div class="honor">
+                    <div class="m1" style="--i:2;">
+                        <table class="mhy-ry">
+                            <tr>
+                                <th class="honor-year">2022</th>
+                            </tr>
+
+                            <!-- 1 -->
+                            <tr>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">米哈游 - 中国互联网综合实力前百强</div>
+                                        <div class="item-origin">上海市委宣传部</div>   
+                                    </div>
+                                    
+                                </td>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">原神 - 2022 TGA“玩家之声”奖</div>
+                                        <div class="item-origin">TGA（The Game Award）</div>   
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- 2 -->
+                            <tr>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">原神-2022 GRAND AWARD</div>
+                                        <div class="item-origin">PlayStation Partner Awards</div>   
+                                    </div>
+                                    
+                                </td>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">原神 - 十大年度国家IP</div>
+                                        <div class="item-origin">国家版权交易中心联席会议</div>   
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- 3 -->
+                            <tr>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">米哈游 - 上海文化企业十强</div>
+                                        <div class="item-origin">上海市委宣传部</div>   
+                                    </div>
+                                    
+                                </td>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">米哈游 - 上海市企业技术中心</div>
+                                        <div class="item-origin">上海市经济和信息化委员会、上海市财政局、国家税务总局上海税务局、上海海关</div>   
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- 4 -->
+                            <tr>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">原神 - 上海文化十大品牌</div>
+                                        <div class="item-origin">上海市委宣传部</div>   
+                                    </div>
+                                    
+                                </td>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">米哈游 - ISO 27001安全管理体系认证   
+                                            <br />ISO 27701隐私信息管理体系证书</div>
+                                        <div class="item-origin">英国标准协会BSI</div>   
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="m2" style="--i:8;--s:1;background-color: #0F0829;">
+                        <img src="mhy-ry.jpeg" alt="">
+                    </div>
+                    <div class="m3" style="--i:7;--s:2;">
+                        <table class="mhy-ry">
+                            <tr>
+                                <th class="honor-year">2016</th>
+                            </tr>
+
+                            
+
+                            <!-- 1 -->
+                            <tr>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">米哈游 - 上海市文化出口重点企业</div>
+                                        <div class="item-origin">上海市商务委员会、中共上海市委宣传部、上海市文广局、上海市出版局、上海市经济和信息化委员会</div>   
+                                    </div>
+                                    
+                                </td>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">米哈游 - 上海市科技小巨人</div>
+                                        <div class="item-origin">上海市科学技术委员会</div>   
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- 2 -->
+                            <tr>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">米哈游 - 上海市明星软件企业（快速增长型）</div>
+                                        <div class="item-origin">上海市软件行业协会</div>   
+                                    </div>
+                                    
+                                </td>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">崩坏3 - 上海市优秀软件产品</div>
+                                        <div class="item-origin">上海市软件行业协会</div>   
+                                    </div>
+                                </td>
+                            </tr>
+
+                        
+                        </table>
+                    </div>
+                    <div class="m4" style="--i:6;--s:3;">
+                        <table class="mhy-ry">
+                            <tr>
+                                <th class="honor-year">2017</th>
+                            </tr>
+
+                            <!-- 1 -->
+                            <tr>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">米哈游 - 中国互联网百强企业</div>
+                                        <div class="item-origin">中国互联网协会</div>   
+                                    </div>
+                                    
+                                </td>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">米哈游 - 中国游戏十强 中国十大游戏研发商</div>
+                                        <div class="item-origin">中国音像与数字出版协会</div>   
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- 2 -->
+                            <tr>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">米哈游 - 中国游戏十强 年度中国十大海外拓展游戏企业</div>
+                                        <div class="item-origin">中国音像与数字出版协会</div>   
+                                    </div>
+                                    
+                                </td>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">崩坏3 - 中国游戏十强 中国十大海外拓展游戏产品</div>
+                                        <div class="item-origin">中国音像与数字出版协会</div>   
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- 3 -->
+                            <tr>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">米哈游 - 专精特新中小企业</div>
+                                        <div class="item-origin">上海市经济和信息化委员会</div>   
+                                    </div>
+                                    
+                                </td>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">崩坏3 - 上海市高新技术成果转化项目</div>
+                                        <div class="item-origin">上海市科学技术委员会</div>   
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </table>
+                    </div>
+                    <div class="m5" style="--i:5;--s:4;">
+                        <table class="mhy-ry">
+                            <tr>
+                                <th class="honor-year">2018</th>
+                            </tr>
+
+                            <!-- 1 -->
+                            <tr>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">米哈游 - 中国互联网百强企业</div>
+                                        <div class="item-origin">中国互联网协会</div>   
+                                    </div>
+                                    
+                                </td>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">米哈游 - 中国游戏十强 年度中国十大海外拓展游戏企业</div>
+                                        <div class="item-origin">中国音像与数字出版协会</div>   
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- 2 -->
+                            <tr>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">崩坏3 - 中国游戏十强 年度十大最受海外欢迎游戏</div>
+                                        <div class="item-origin">中国音像与数字出版协会</div>   
+                                    </div>
+                                    
+                                </td>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">米哈游 - 上海文化企业十佳</div>
+                                        <div class="item-origin">中共上海市委宣传部</div>   
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- 3 -->
+                            <tr>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">米哈游 - 上海市高新技术企业</div>
+                                        <div class="item-origin">上海市科委、上海市财政局、上海市税务局</div>   
+                                    </div>
+                                    
+                                </td>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">崩坏3 - 上海市高新技术成果转化项目百佳 </div>
+                                        <div class="item-origin">上海市科技创业中心</div>   
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- 4 -->
+                            <tr>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">米哈游 - 上海市软件和信息技术服务企业百强</div>
+                                        <div class="item-origin">上海市经济和信息化委员会</div>   
+                                    </div>
+                                    
+                                </td>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">上海市软件行业核心竞争力企业（规模型）</div>
+                                        <div class="item-origin">上海市软件行业协会</div>   
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                        </table>
+                    </div>
+                    <div class="m6" style="--i:4;--s:5;">
+                        <table class="mhy-ry">
+                            <tr>
+                                <th class="honor-year">2019</th>
+                            </tr>
+
+                            <!-- 1 -->
+                            <tr>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">米哈游 - 2019-2020国家文化出口重点企业</div>
+                                        <div class="item-origin">商务部、中宣部、财政部、文旅部、广电总局</div>   
+                                    </div>
+                                    
+                                </td>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">崩坏3 - 2019-2020国家文化出口重点项目</div>
+                                        <div class="item-origin">商务部、中宣部、财政部、文旅部、广电总局</div>   
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- 2 -->
+                            <tr>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">米哈游 - 中国互联网百强企业</div>
+                                        <div class="item-origin">中国互联网协会、工信部信息中心</div>   
+                                    </div>
+                                    
+                                </td>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">米哈游 - 中国游戏十强 十大海外拓展游戏企业、十大游戏研发企业</div>
+                                        <div class="item-origin">中国音像与数字出版协会</div>   
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- 3 -->
+                            <tr>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">崩坏3 - 中国游戏十强 十大最受海外欢迎游戏</div>
+                                        <div class="item-origin">中国音像与数字出版协会</div>   
+                                    </div>
+                                    
+                                </td>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">米哈游 - 上海市民营企业总部</div>
+                                        <div class="item-origin">上海市商务委员会</div>   
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- 4 -->
+                            <tr>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title"> 米哈游 - 上海市高新技术企业</div>
+                                        <div class="item-origin">上海市科委、上海市财政局、上海市税务局</div>   
+                                    </div>
+                                    
+                                </td>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">米哈游 - 上海市文明单位</div>
+                                        <div class="item-origin">上海市人民政府</div>   
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                        </table>
+                    </div>
+                    <div class="m7" style="--i:3;--s:6;">
+                        <table class="mhy-ry">
+                            <tr>
+                                <th class="honor-year">2020</th>
+                            </tr>
+
+                            <!-- 1 -->
+                            <tr>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">米哈游 - 中国互联网企业综合实力百强企业</div>
+                                        <div class="item-origin">中国互联网协会</div>   
+                                    </div>
+                                    
+                                </td>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">米哈游 - 中国游戏十强 新锐游戏、优秀游戏音乐奖、研发团队奖</div>
+                                        <div class="item-origin">中国音像与数字出版协会</div>   
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- 2 -->
+                            <tr>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">原神 - 金手指奖 优秀游戏</div>
+                                        <div class="item-origin">中国文化娱乐行业协会</div>   
+                                    </div>
+                                    
+                                </td>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">米哈游 - 金手指奖 中国游戏行业优秀企业、产品研发先进单位</div>
+                                        <div class="item-origin">中国文化娱乐行业协会</div>   
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- 3 -->
+                            <tr>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">原神 - 年度最佳游戏 、最具创新力游戏、最受欢迎游戏</div>
+                                        <div class="item-origin">Google Play</div>   
+                                    </div>
+                                    
+                                </td>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">原神 - App Store年度移动游戏</div>
+                                        <div class="item-origin">Apple</div>   
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- 4 -->
+                            <tr>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">原神 - TapTap 年度游戏大赏 最佳游戏</div>
+                                        <div class="item-origin">TapTap</div>   
+                                    </div>
+                                    
+                                </td>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">米哈游 - 上海软件和信息技术服务业百强</div>
+                                        <div class="item-origin">上海市经济和信息化委员会</div>   
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="m8" style="--i:2;--s:7;">
+                        <table class="mhy-ry">
+                            <tr>
+                                <th class="honor-year">2021</th>
+                            </tr>
+
+                            <!-- 1 -->
+                            <tr>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">米哈游 - 2021-2022 国家文化出口重点企业</div>
+                                        <div class="item-origin">商务部、中宣部、财政部、文化部、国家新闻出版广电总局</div>   
+                                    </div>
+                                    
+                                </td>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">原神 - 2021-2022 国家文化出口重点项目</div>
+                                        <div class="item-origin">商务部、中宣部、财政部、文化部、国家新闻出版广电总局</div>   
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- 2 -->
+                            <tr>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">米哈游 - 上海软件和信息技术服务业百强</div>
+                                        <div class="item-origin">中国电子信息行业联合会</div>   
+                                    </div>
+                                    
+                                </td>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">原神 - 2021 最佳移动游戏奖项获奖</div>
+                                        <div class="item-origin">TGA（The Game Awards）</div>   
+                                    </div>
+                                </td>
+                            </tr>
+                            
+
+                            <!-- 3 -->
+                            <tr>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">原神 - 2021 GRAND AWARD</div>
+                                        <div class="item-origin">PlayStation Partner Awards</div>   
+                                    </div>
+                                    
+                                </td>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">原神 - 视觉图像奖</div>
+                                        <div class="item-origin">Apple</div>   
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- 4 -->
+                            <tr>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">原神 - 游戏开发者选择奖 最佳移动游戏</div>
+                                        <div class="item-origin">Game Developers Conference (GDC)</div>   
+                                    </div>
+                                    
+                                </td>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">未定事件簿 - 最具创新力游戏</div>
+                                        <div class="item-origin">Google Play</div>   
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="m9" style="--i:1;--s:8;">
+                        <table class="mhy-ry">
+                            <tr>
+                                <th class="honor-year">2015</th>
+                            </tr>
+
+                            <!-- 1 -->
+                            <tr>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">米哈游 - 中国互联网综合实力前百强</div>
+                                        <div class="item-origin">上海市委宣传部</div>   
+                                    </div>
+                                    
+                                </td>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">原神 - 2022 TGA“玩家之声”奖</div>
+                                        <div class="item-origin">TGA（The Game Award）</div>   
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- 2 -->
+                            <tr>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">原神-2022 GRAND AWARD</div>
+                                        <div class="item-origin">PlayStation Partner Awards</div>   
+                                    </div>
+                                    
+                                </td>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">原神 - 十大年度国家IP</div>
+                                        <div class="item-origin">国家版权交易中心联席会议</div>   
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- 3 -->
+                            <tr>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">米哈游 - 上海文化企业十强</div>
+                                        <div class="item-origin">上海市委宣传部</div>   
+                                    </div>
+                                    
+                                </td>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">米哈游 - 上海市企业技术中心</div>
+                                        <div class="item-origin">上海市经济和信息化委员会、上海市财政局、国家税务总局上海税务局、上海海关</div>   
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- 4 -->
+                            <tr>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">原神 - 上海文化十大品牌</div>
+                                        <div class="item-origin">上海市委宣传部</div>   
+                                    </div>
+                                    
+                                </td>
+                                <td>
+                                    <div class="honor-item">
+                                        <div class="item-title">米哈游 - ISO 27001安全管理体系认证   
+                                            ISO 27701隐私信息管理体系证书</div>
+                                        <div class="item-origin">英国标准协会BSI</div>   
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="shell-heading1">
+                <h1>
+                    <img src="m1.png" alt="">
+                    荣誉资质
+                    <img src="m2.png" alt="">
+                </h1>
+            </div>
+        </div>
+
+
+    </section>
+    <!-- 主页end -->
+
+
+
+    <!-- 页脚 -->
+    <section class="footer">
+        <div class="mihoyo-footer">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-box">
+                        <img src="mihoyo-logo.png" alt="" class="logo-big">
+                    </div>
+                </div>
+                <div class="footer-info">
+                    <div class="footer-link">
+                        <div>
+                            <span class="protocol1">隐私政策</span>
+                            <span class="protocol">|</span>
+                            <span class="protocol">自律公约</span>
+                            <span class="protocol">|</span>
+                            <span class="protocol">廉政举报</span>
+                            <span class="protocol">|</span>
+                            <span class="protocol">联系我们</span>
+                            <span class="protocol">|</span>
+                            <span class="protocol">加入我们</span>
+                            <span class="protocol">|</span>
+                            <span class="protocol"><a href="report.html" style="color: #fff;" target="_blank">报告</a></span>
+                        </div>
+                    </div>
+                    <div class="footer-advice">
+                        <p>
+                            健康游戏忠告：抵制不良游戏，拒绝盗版游戏。注意自我保护，谨防受骗上当。适度游戏益脑，沉迷游戏伤身。合理安排时间，享受健康生活。
+                        </p>
+                        <div class="inline-info">
+                            <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=沪公网安备31010402001113号" target="_blank" style="color: #999;">
+                                沪公网安备31010402001113号
+                            </a>
+                            <span class="split-line">|</span>
+                            <span class="footer-filing-item">增值电信业务经营许可证：沪B2-20190555</span>
+
+                        </div>
+                    </div>
+                    <div class="footer-filing">
+                        <div class="footer-filing-tip">
+                            <span>互联网违法不良信息举报邮箱: tousu@mihoyo.com</span>
+                            <span>互联网违法不良信息举报电话: 021-60371750 （工作时间：每天10点 - 20点）</span>
+                        </div>
+                    </div>
+                    <div class="footer-tip">
+                        亲爱的市民朋友，上海警方反诈劝阻电话“962110”系专门针对避免您财产被骗受损而设，请您一旦收到来电，立即接听
+                    </div>
+                    <div class="footer-filing-content">
+                        <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank" style="color: #999;">
+                            沪ICP备19018275号-4
+                        </a>
+                        <span class="split-line">|</span>
+                        <span class="footer-filing-item">沪网文〔2022〕1334-052号</span>
+                    </div>
+                    <div class="guanai-phone">
+                        未成年成长关爱热线：021-60371740 （服务时间：8:00-23:00）
+                    </div>
+                    <div class="footer-phone">
+                        <div class="mihoyo-copyright">©miHoYo | 上海米哈游影铁科技有限公司</div>
+                        <div class="complaint-phone">客服电话：400-666-6312</div>
+                    </div>
+                    <div class="footer-icon">
+                        <a href="https://v.yunaq.com/certificate?domain=www.mihoyo.com&amp;from=label&amp;code=90020" target="_blank">
+                            <img src="icon1.png" alt="">
+                        </a>
+                        <a href="http://www.shjbzx.cn/" target="_blank">
+                            <img src="icon2.png" alt="">
+                        </a>
+                        <a href="https://www.12377.cn/" target="_blank">
+                            <img src="icon3.png" alt="">
+                        </a>
+                        <a href="http://sq.ccm.gov.cn:80/ccnt/sczr/service/business/emark/toDetail/8955A9DDE1FF8B6CE053010A14ACA87F" target="_blank">
+                            <img src="icon4.png" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="icon5.png" alt="">
+                        </a>
+                        <a href="http://wap.scjgj.sh.gov.cn/businessCheck/verifKey.do?showType=extShow&amp;serial=9031000020190314100540000004452331-SAIC_SHOW_310000-20200120150237277642&amp;signData=MEYCIQCjn9IhIKfUHjPlx9W6xrYPZ4GA73Blopwp0iEzSX0OHQIhAOZm3tnlWLrgVXMtvgp5OibauIgiAa+2d+MQ7qzMIm6t" target="_blank">
+                            <img src="icon6.png" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 页脚end -->
+    
+    
+</body>
+</html>

@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>米哈游-TECH OTAKUS SAVE THE WORLD</title>
+    <link rel="short icon" href="mi.png">
+    <link rel="stylesheet" href="part.css">
+    <link rel="stylesheet" href="news.css">
+</head>
+<body>
+
+    <!--导航栏-->
+    <div class="header">
+        <!--播放器-->
+        <audio src="bg.mp3" id="music" autoplay loop>
+        </audio>
+        <a href="javascript:playPause();">
+            <img src="bfq.png" class="audio-controller" data-original="bfq2.png" id="music_btn">
+        </a> 
+        <script src="audio.js"></script>
+
+        <!--logo-->
+        <div class="site-logo">
+            <img src="mihoyo-logo.png" style="width: 85.95px;height: 29.95px;">
+        </div>
+        <!--logo end-->
+
+
+        <div class="navwrap">
+            <div class="navbar">
+                <a href="index.html" class="navitem">首页</a>
+                <a to="/" class="navitem" style="text-shadow: 0 0 10px #69e0ff,0 0 20px #69e0ff,0 0 40px #69e0ff; color: rgb(255, 255, 255);">新闻</a>
+                <a href="character.html" class="navitem">产品</a>
+                <a href="map.html" class="navitem">发展</a>
+                <div class="tapdown">
+                    <a href="https://www.miyoushe.com/" class="navitem" target="_blank">社区</a>
+                    <ul class="dis">
+                        <li><a href="https://www.miyoushe.com/" target="_blank">米游社</a></li>
+                        <li><a href="know.html">了解我们</a></li>
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="header-right">
+            <a href="https://jiazhang.mihoyo.com" class="cz" target="_blank">
+                <span>成长关爱系统</span>
+                <img src="love.png" alt="">
+            </a>
+            <div class="denglu">
+                <button class="denglu-btn" onclick="denglushow()">
+                    <span>登录</span>
+                    
+                    <img src="denglu.png" alt="">
+                </button>
+                <div id="denglublack">
+                    <div class="dengluwin">
+                        <div class="firmlogo">
+                            <img src="mihoyo.png" alt="">
+                        </div>
+                        <div class="dengluclose_btn">
+                            <button class="byebye" onclick="dengluhide()"></button>
+                        </div> 
+                        <div class="denglu-content">
+                        <div id="tab">
+                            <div id="tabNav">
+                                <ul>
+                                    <li class="active">
+                                        <div class="li1">
+                                            验证码登录
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="li1">
+                                            密码登录
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="main">
+                                <div class="item show">
+                                    <!-- 验证码登录 -->
+                                    <form class="denglu-form" action="#">
+                                        <div>
+                                            <input class="acc" type="text" id="username2" value="" placeholder="手机号注册/登录"/>
+                                        </div>
+                                        <div>
+                                            <input class="acc" type="pass" id="yzm" placeholder="验证码"/>
+                                            <button class="input-inner" onclick=Num() >获取验证码</button>
+                                            <script>
+                                                function Num()
+                                                {
+                                                    if(username2.value==""){
+                                                        alert("手机号格式错误");
+                                                    }
+                                                    else{
+                                                        document.getElementById("yzm").value=parseInt(Math.random()*888888+111111);
+                                                    } 
+                                                }
+                                            </script>
+                                        </div>
+                                        
+                                    </form>
+                                    <from  action="#">
+                                            <input class="submit" type="submit" id="log2" value="登录"/>
+                                    </from>
+                                    <script>
+                                        
+                                        let username2=document.getElementById("username2");
+                                        let yzm=document.getElementById("yzm");
+                                        let btn1=document.getElementById("log2");
+                                        btn1.onclick=function(){
+                                            if(yzm.value==''){
+                                                alert("请输入验证码")
+                                            }
+                                            else if(username2.value==localStorage.getItem('username1')){
+                                                alert("登录成功");
+                                                window.location.href="index.html"	
+                                            }
+                                            else{
+                                            alert("账号或验证码错误");
+                                            }
+                                        }
+                                    </script>
+                                    
+                                    <div class="down">
+                                        <button id="question" onclick="showqu()">登录遇到问题？</button>
+                                        <div id="quover">
+                                            <div class="ques">
+                                              <div class="qu-content">
+                                                <button class="xx" onclick="hidequ()"></button>
+                                                <div class="ques-title">遇到问题</div>
+                                              <div class="question_btn">
+                                                <a href="forget.html">
+                                                    <button class="meet-btn">忘记密码</button>
+                                                </a> 
+                                                <a href="https://user.mihoyo.com/#/questions?game=sdk" target="_blank">
+                                                    <button class="meet-btn btn2">常见问题</button>
+                                                </a>
+                                              </div>
+                                            </div>
+                                            </div>
+                                          </div>
+                                          <script>
+                                            function showqu(){
+                                            var overlay = document.getElementById("quover");
+                                            overlay.style.display = "block";
+                                          }
+                                          function hidequ(){
+                                            var overlay = document.getElementById("quover");
+                                            overlay.style.display = "none";
+                                          }
+                                          </script>
+                                        <a href="zhuce.html" class="zhuce">立即注册</a>
+                                        
+                                    </div>
+                                    <div class="down-yzm">
+                                        <p class="yzm-tip">
+                                            <span>未注册的手机验证后将自动登录。注册/登录即代表您同意并遵守</span>
+                                            <a target="_blank" href="https://user.mihoyo.com/#/agreement?hideBack=true">《米哈游通行证用户服务协议》</a>
+                                            <a target="_blank" href="https://user.mihoyo.com/#/privacyAgreement?hideBack=true">《米哈游通行证用户个人信息及隐私保护政策》</a>
+                                        </p>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <!-- 密码登录 -->
+                                <div class="item">
+                                    
+                                    <form class="denglu-form" action="#">
+                                        <div><input class="acc" type="text" id="username" placeholder="手机号/邮箱"/></div>
+                                        <div><input class="acc" type="password" id="pwd" placeholder="密码"/></div>   
+                                    </form>
+                                    <from  action="#">
+                                            <input class="submit" type="submit" id="log" value="登录"/>
+                                    </from>
+                                    
+                                    <div class="down">
+                                        <button id="question" onclick="showqu2()">登录遇到问题？</button>
+                                        <div id="quover2">
+                                            <div class="ques">
+                                              <div class="qu-content">
+                                                <button class="xx" onclick="hidequ2()"></button>
+                                                <div class="ques-title">遇到问题</div>
+                                              <div class="question_btn">
+                                                <a href="forget.html">
+                                                    <button class="meet-btn">忘记密码</button>
+                                                </a> 
+                                                <a href="https://user.mihoyo.com/#/questions?game=sdk" target="_blank">
+                                                    <button class="meet-btn btn2">常见问题</button>
+                                                </a>
+                                              </div>
+                                            </div>
+                                            </div>
+                                          </div>
+                                          <script>
+                                            function showqu2(){
+                                                var overlay = document.getElementById("quover2");
+                                                overlay.style.display = "block";
+                                            }
+                                            function hidequ2(){
+                                                var overlay = document.getElementById("quover2");
+                                                overlay.style.display = "none";
+                                            }
+                                          </script>
+                                        <a href="zhuce.html" class="zhuce">立即注册</a>
+                                    </div>
+                                    <div class="down-yzm">
+                                        <p class="yzm-tip">
+                                            <span>登录即代表您同意并遵守</span>
+                                            <a target="_blank" href="https://user.mihoyo.com/#/agreement?hideBack=true">《米哈游通行证用户服务协议》</a>
+                                            <a target="_blank" href="https://user.mihoyo.com/#/privacyAgreement?hideBack=true">《米哈游通行证用户个人信息及隐私保护政策》</a>
+                                        </p>
+                                        </div>
+                                </div>
+                                
+                                <script>
+                                    let username=document.getElementById("username");
+                                    let pwd=document.getElementById("pwd");
+                                    let btn=document.getElementById("log");
+                                    
+                                    
+                                    btn.onclick=function(){
+
+                                        
+                                        
+                                        
+                                        if(username.value==localStorage.getItem('username1') && pwd.value==localStorage.getItem('pwd1')){
+                                            alert("登录成功");
+                                            window.location.href="index.html"
+                                                
+                                        }else{
+                                            alert("账号或密码错误");
+                                        }
+                                    }
+                                </script>
+                                </div>
+                            </div>
+                        </div>
+                        <script>
+                            let tab=document.querySelector("#tabNav");
+                            let li=tab.querySelectorAll("li");
+                            let item=document.querySelectorAll(".item");
+                            for(let i=0;i<li.length;i++){
+                                li[i].onclick=function(){
+                                    li.forEach(value=>{value.className='';});
+                                    li[i].className='active';
+                                    item.forEach(value=>{value.className='item'});
+                                    item[i].className='item show';
+                                }
+                            }
+                        </script>		
+                    </div>
+                    
+                </div>  
+                </div>
+            </div>
+                  <script>
+                     function denglushow(){
+                        var overlay = document.getElementById("denglublack");
+                        denglublack.style.display = "block";
+                    }
+                    function dengluhide(){
+                        var overlay = document.getElementById("denglublack");
+                        denglublack.style.display = "none";
+                    }
+                  </script>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!--导航栏end-->
+
+    <!-- 主页 -->
+    <section class="recommend">
+        <div class="bg">
+            <img src="news-bg.jpg" alt="">
+        </div>
+
+        
+        <div class="body-recommend">
+
+            <div class="shell">
+                <div class="box">
+                    <div class="images">
+                        <img src="news1.jpg">
+                        <p>
+                            米哈游荣获“上海文化企业十强”
+                        </p>
+                    </div>
+                    <div class="content">
+                        <h2>11 / 24</h2>
+                        <p>
+                            米哈游坚持助力传统文化创新表达、中华文化破圈传播，荣获上海文化企业十强，公司总裁刘伟荣获上海文化企业十大年度人物，公司原创IP“原神”荣获上海十大文化品牌。
+                        </p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="images">
+                        <img src="news2.jpg">
+                        <p>
+                            “你们好，见字如面！”——阅见未名：图书捐赠公益活动
+                        </p>
+                    </div>
+                    <div class="content">
+                        <h2>11 / 24</h2>
+                        <p>
+                            2022年，米哈游《未定事件簿》携手韬奋基金会，联合开展了「阅见未名」图书捐赠公益活动。在《未定事件簿》各位玩家的热心支持下，目前已向云南省大理白族自治州11所小学、云南省普洱市澜沧拉祜族自治县36所小学...
+                        </p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="images">
+                        <img src="news3.jpeg">
+                        <p>
+                            米哈游正式通过ISO27001及ISO27701双重认证
+                        </p>
+                    </div>
+                    <div class="content">
+                        <h2>10 / 10</h2>
+                        <p>
+                            近日，米哈游正式通过ISO双认证，获得由国际知名专业风险管理服务机构英国标准协会(BSI)官方颁发的ISO/IEC27001信息安全管理体系认证证书和ISO/IEC27701隐私信息管理体系认证证书。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+    <section class="news">
+
+        <div class="decoration">
+            <img src="news-decoration.png" alt="">
+        </div>
+
+        <div class="news-main">
+            <div class="news-show">
+
+                <div id="news-tab">
+                    <div id="news-tabNav">
+                        <ul>
+                            <li class="active1">
+                                <span>全部</span>
+                            </li>
+                            <li>
+                                <span>游戏</span>
+                            </li>
+                            <li>
+                                <span>公司</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="newscontent-main">
+                        <div class="news-item" style="display: block;">
+                            <!-- 最新 -->
+                            <div class="mainshow">
+
+                                <a href="https://www.mihoyo.com/news/103569" target="_blank" class="news-contents">
+                                    <div class="content-item_img">
+                                        <img src="news1.jpg" alt="">
+                                    </div>
+                                    <div class="content-item-bd">
+                                        <div class="content-item-title">
+                                            <div class="item-title">米哈游荣获“上海文化企业十强”</div>
+                                            <span>发布日期：2022-11-24</span>
+                                            <div class="base-line"></div>
+                                        </div>
+                                        <p class="content-item-intro">米哈游坚持助力传统文化创新表达、中华文化破圈传播，荣获上海文化企业十强，公司总裁刘伟荣获上海文化企业十大年度人物，公司原创IP“原神”荣获上海十大文化品牌。</p>
+                                        <div class="content-after"></div>
+                                    </div>
+                                </a>
+
+                                <a href="https://www.mihoyo.com/news/103570" target="_blank" class="news-contents">
+                                    <div class="content-item_img">
+                                        <img src="news2.jpg" alt="">
+                                    </div>
+                                    <div class="content-item-bd">
+                                        <div class="content-item-title">
+                                            <div class="item-title">“你们好，见字如面！”——阅见未名：图书捐赠公益活动</div>
+                                            <span>发布日期：2022-11-24</span>
+                                            <div class="base-line"></div>
+                                        </div>
+                                        <p class="content-item-intro">2022年，米哈游《未定事件簿》携手韬奋基金会，联合开展了「阅见未名」图书捐赠公益活动。在《未定事件簿》各位玩家的热心支持下，目前已向云南省大理白族自治州11所小学、云南省普洱市澜沧拉祜族自治县36所小学共捐赠图书37000余册，并挂名“未名书屋”，丰富了当地学生的课后阅读资源。</p>
+                                        <div class="content-after"></div>
+                                    </div>
+                                </a>
+
+                                <a href="https://www.mihoyo.com/news/103568" target="_blank" class="news-contents">
+                                    <div class="content-item_img">
+                                        <img src="news3.jpeg" alt="">
+                                    </div>
+                                    <div class="content-item-bd">
+                                        <div class="content-item-title">
+                                            <div class="item-title">米哈游正式通过ISO27001及ISO27701双重认证</div>
+                                            <span>发布日期：2022-10-10</span>
+                                            <div class="base-line"></div>
+                                        </div>
+                                        <p class="content-item-intro">近日，米哈游正式通过ISO双认证，获得由国际知名专业风险管理服务机构英国标准协会(BSI)官方颁发的 ISO/IEC27001信息安全管理体系认证证书和ISO/IEC27701隐私信息管理体系认证证书。</p>
+                                        <div class="content-after"></div>
+                                    </div>
+                                </a>
+
+                                <a href="https://www.mihoyo.com/news/101170" target="_blank" class="news-contents">
+                                    <div class="content-item_img">
+                                        <img src="https://webstatic.mihoyo.com/upload/op-public/2022/02/09/bb01b1b80c4acc01ec54a8b88d52ece6_7744980568040073586.png?x-oss-process=image%2Fresize%2Cw_356%2Fquality%2CQ_90%2Fformat%2Cwebp" alt="">
+                                    </div>
+                                    <div class="content-item-bd">
+                                        <div class="content-item-title">
+                                            <div class="item-title">2021年中国互联网综合实力企业百强揭晓 米哈游连续五年上榜</div>
+                                            <span>发布日期：2021-11-29</span>
+                                            <div class="base-line"></div>
+                                        </div>
+                                        <p class="content-item-intro">11月26日，中国互联网协会召开中国互联网企业综合实力指数（2021）发布会，中国互联网协会副秘书长宋茂恩在会上正式发布了《中国互联网企业综合实力指数（2021）》。</p>
+                                        <div class="content-after"></div>
+                                    </div>
+                                </a>
+
+                                <a href="https://www.mihoyo.com/news/100974" target="_blank" class="news-contents">
+                                    <div class="content-item_img">
+                                        <img src="https://webstatic.mihoyo.com/upload/op-public/2021/10/15/243e7a7235fec192f05bba2a4a160c5f_7980388559242797825.png?x-oss-process=image%2Fresize%2Cw_356%2Fquality%2CQ_90%2Fformat%2Cwebp" alt="">
+                                    </div>
+                                    <div class="content-item-bd">
+                                        <div class="content-item-title">
+                                            <div class="item-title">中国共产党上海米哈游网络科技股份有限公司委员会党员大会顺利召开</div>
+                                            <span>发布日期：2021-09-24</span>
+                                            <div class="base-line"></div>
+                                        </div>
+                                        <p class="content-item-intro">2021年9月24日，中共上海米哈游网络科技股份有限公司委员会召开全体党员大会，选举产生了第一届党委委员，标志着米哈游党支部正式升格为党委。</p>
+                                        <div class="content-after"></div>
+                                    </div>
+                                </a>
+
+                                <p>
+                                    <a href="javascript:showdiv();" id="strHref" class="btn-slide">查看更多</a>
+                                </p>
+                                
+                            </div>
+
+                            <div id="showhide1" style="display: none;">
+
+                                <a href="https://www.mihoyo.com/news/100593" target="_blank" class="news-contents">
+                                    <div class="content-item_img">
+                                        <img src="https://webstatic.mihoyo.com/upload/op-public/2021/08/10/57038aae269f2737755cd100b3e6a860_6026948157949803697.png?x-oss-process=image%2Fresize%2Cw_356%2Fquality%2CQ_90%2Fformat%2Cwebp" alt="">
+                                    </div>
+                                    <div class="content-item-bd">
+                                        <div class="content-item-title">
+                                            <div class="item-title">米哈游再次入选国家文化出口重点企业 《原神》入选国家文化出口重点项目</div>
+                                            <span>发布日期：2021-08-04</span>
+                                            <div class="base-line"></div>
+                                        </div>
+                                        <p class="content-item-intro">日前，国家商务部办公厅、中央宣传部办公厅、财政部办公厅、文化和旅游部办公厅及广电总局办公厅共同公布了“2021-2022年度国家文化出口重点企业和重点项目名单”。根据公示名单，米哈游入围2021-2022年度国家文化出口重点企业，《原神》入围2021-2022年度国家文化出口重点项目。</p>
+                                        <div class="content-after"></div>
+                                    </div>
+                                </a>
+
+                                <a href="https://www.mihoyo.com/news/100595" target="_blank" class="news-contents">
+                                    <div class="content-item_img">
+                                        <img src="https://webstatic.mihoyo.com/upload/op-public/2021/08/11/56cb241ab9bd0498b3d420c645fe04ab_7859973270035633429.png?x-oss-process=image%2Fresize%2Cw_356%2Fquality%2CQ_90%2Fformat%2Cwebp" alt="">
+                                    </div>
+                                    <div class="content-item-bd">
+                                        <div class="content-item-title">
+                                            <div class="item-title">《原神》荣获首届中国游戏创新大赛最佳创新游戏大奖</div>
+                                            <span>发布日期：2021-08-02</span>
+                                            <div class="base-line"></div>
+                                        </div>
+                                        <p class="content-item-intro">近日，由中国游戏产业研究院举办的“2021年度首届中国游戏创新大赛”公布了最佳创新游戏大奖、最佳创新中华文化奖、最佳创新社会价值功能奖等系列获奖名单。</p>
+                                        <div class="content-after"></div>
+                                    </div>
+                                </a>
+
+                                <a href="https://www.mihoyo.com/news/100594" target="_blank" class="news-contents">
+                                    <div class="content-item_img">
+                                        <img src="https://webstatic.mihoyo.com/upload/op-public/2021/08/10/d0f62f5a1c71423eb1bd0b55c6cb2cc0_6834787032492709882.png?x-oss-process=image%2Fresize%2Cw_356%2Fquality%2CQ_90%2Fformat%2Cwebp" alt="">
+                                    </div>
+                                    <div class="content-item-bd">
+                                        <div class="content-item-title">
+                                            <div class="item-title">希望不熄 薪火永燃｜中国青基会与米哈游成立薪火公益计划</div>
+                                            <span>发布日期：2021-07-12</span>
+                                            <div class="base-line"></div>
+                                        </div>
+                                        <p class="content-item-intro">2021年7月12日，由中国青少年发展基金会和上海米哈游网络科技股份有限公司共同发起的旨在关注与支持国内青少年教育发展的“2021中国青基会希望工程·米哈游薪火公益计划发布会”在北京举行。中国青基会党委书记、理事长郭美荐，中国青基会副秘书长张华伟，上海米哈游网络科技股份有限公司副总裁殷春波等出席此次发布会并共同举行了“薪火公益计划”授牌仪式。目前，该计划第一期项目已在云南省盐津县普洱镇桐梓小学开展实施。</p>
+                                        <div class="content-after"></div>
+                                    </div>
+                                </a>
+
+                                <a href="https://www.mihoyo.com/news/100678" target="_blank" class="news-contents">
+                                    <div class="content-item_img">
+                                        <img src="https://webstatic.mihoyo.com/upload/op-public/2021/08/12/0ab44f413e2513bb8e89fd3996e23ff8_7920693913283872724.png?x-oss-process=image%2Fresize%2Cw_356%2Fquality%2CQ_90%2Fformat%2Cwebp" alt="">
+                                    </div>
+                                    <div class="content-item-bd">
+                                        <div class="content-item-title">
+                                            <div class="item-title">米哈游携手中国青少年发展基金会：共绘流景，让生命绽放光芒</div>
+                                            <span>发布日期：2021-06-09</span>
+                                            <div class="base-line"></div>
+                                        </div>
+                                        <p class="content-item-intro">近日，米哈游携手中国青少年发展基金会 ，举办「共绘流景」儿童美术教育公益活动，共同呼吁关注美术教育，让每一个孩子都能绽放属于他的光芒。</p>
+                                        <div class="content-after"></div>
+                                    </div>
+                                </a>
+
+                                <a href="https://www.mihoyo.com/news/100977" target="_blank" class="news-contents">
+                                    <div class="content-item_img">
+                                        <img src="https://webstatic.mihoyo.com/upload/op-public/2021/10/15/96acccb32f7eaece0766f4aa4914ed1e_918259689375188862.png?x-oss-process=image%2Fresize%2Cw_356%2Fquality%2CQ_90%2Fformat%2Cwebp" alt="">
+                                    </div>
+                                    <div class="content-item-bd">
+                                        <div class="content-item-title">
+                                            <div class="item-title">米哈游团委成立</div>
+                                            <span>发布日期：2021-05-21</span>
+                                            <div class="base-line"></div>
+                                        </div>
+                                        <p class="content-item-intro">2021年5月21日上午，共青团上海米哈游网络科技股份有限公司委员会召开了第一次团员代表大会，选举产生共青团委员会第一届委员会委员及书记、副书记。团市委副书记丁波出席并讲话，团市委宣传与网络工作部部长何婷婷，虹梅街道党工委书记、人大工委主任万小岚，徐汇团区委副书记（主持工作）陆璟琨参加会议，公司团员青年代表60余人参加本次大会。</p>
+                                        <div class="content-after"></div>
+                                    </div>
+                                </a>
+                                <p>
+                                    <a href="javascript:showdiv1();" id="strHref1" class="btn-slide">查看更多</a>
+                                </p>
+
+                            </div>
+                            <script>
+                                function showdiv(){
+                                    document.getElementById("showhide1").style.display = "block";
+                                    document.getElementById('strHref').style.display = "none";
+                                }
+
+                            </script>
+
+                            <div id="showhide2" style="display: none;">
+
+                                <a href="https://www.mihoyo.com/news/100676" target="_blank" class="news-contents">
+                                    <div class="content-item_img">
+                                        <img src="https://webstatic.mihoyo.com/upload/op-public/2021/08/12/3ff4c1b35d106beba1e23acd48dd4e10_2685484553307463424.png?x-oss-process=image%2Fresize%2Cw_356%2Fquality%2CQ_90%2Fformat%2Cwebp" alt="">
+                                    </div>
+                                    <div class="content-item-bd">
+                                        <div class="content-item-title">
+                                            <div class="item-title">米哈游携手中国法律援助基金会：以法扬善，长乐长安</div>
+                                            <span>发布日期：2021-04-15</span>
+                                            <div class="base-line"></div>
+                                        </div>
+                                        <p class="content-item-intro">近日，米哈游携手中国法律援助基金会，举办「毅然同行」法律援助公益活动，共同呼吁关注法治建设，共创美好生活。</p>
+                                        <div class="content-after"></div>
+                                    </div>
+                                </a>
+
+                                <a href="https://www.mihoyo.com/news/100608" target="_blank" class="news-contents">
+                                    <div class="content-item_img">
+                                        <img src="https://webstatic.mihoyo.com/upload/op-public/2021/08/12/89c61711a6fcc9181bb52b28a7b2db8c_3989892684335036449.png?x-oss-process=image%2Fresize%2Cw_356%2Fquality%2CQ_90%2Fformat%2Cwebp" alt="">
+                                    </div>
+                                    <div class="content-item-bd">
+                                        <div class="content-item-title">
+                                            <div class="item-title">未定事件簿携手中国绿色碳汇基金会：遗鸥保护公益活动</div>
+                                            <span>发布日期：2021-02-05</span>
+                                            <div class="base-line"></div>
+                                        </div>
+                                        <p class="content-item-intro">2020年11月，米哈游携手中国绿色碳汇基金会，联合发起“夏羽乘风”遗鸥保护公益活动，呼吁更多人关注鸟类保护、关注生物多样性、关注自然生态。</p>
+                                        <div class="content-after"></div>
+                                    </div>
+                                </a>
+
+                                <a href="https://www.mihoyo.com/news/100613" target="_blank" class="news-contents">
+                                    <div class="content-item_img">
+                                        <img src="https://webstatic.mihoyo.com/upload/op-public/2021/08/12/09e9af4920076fa4907516057e1efe45_5164970593346580576.png?x-oss-process=image%2Fresize%2Cw_356%2Fquality%2CQ_90%2Fformat%2Cwebp" alt="">
+                                    </div>
+                                    <div class="content-item-bd">
+                                        <div class="content-item-title">
+                                            <div class="item-title">《原神》荣获Apple、Google全球年度游戏</div>
+                                            <span>发布日期：2020-12-17</span>
+                                            <div class="base-line"></div>
+                                        </div>
+                                        <p class="content-item-intro">米哈游《原神》在近日相继荣获苹果App Store 2020 iPhone年度游戏、谷歌Google Play 2020年度最佳游戏</p>
+                                        <div class="content-after"></div>
+                                    </div>
+                                </a>
+
+                                <a href="https://www.mihoyo.com/news/100605" target="_blank" class="news-contents">
+                                    <div class="content-item_img">
+                                        <img src="https://webstatic.mihoyo.com/upload/op-public/2021/08/11/3e14d4993e5f2345977184fd41075e52_6565252122670267552.png?x-oss-process=image%2Fresize%2Cw_356%2Fquality%2CQ_90%2Fformat%2Cwebp" alt="">
+                                    </div>
+                                    <div class="content-item-bd">
+                                        <div class="content-item-title">
+                                            <div class="item-title">米哈游×黄龙：赋能生态环境保护</div>
+                                            <span>发布日期：2020-11-30</span>
+                                            <div class="base-line"></div>
+                                        </div>
+                                        <p class="content-item-intro">继与张家界的联动之后，米哈游与黄龙国家级风景名胜区的合作也正式启动，邀你一同踏上奇幻多彩之旅！</p>
+                                        <div class="content-after"></div>
+                                    </div>
+                                </a>
+
+                                <a href="https://www.mihoyo.com/news/100606" target="_blank" class="news-contents">
+                                    <div class="content-item_img">
+                                        <img src="https://webstatic.mihoyo.com/upload/op-public/2021/08/12/7122509553c2c2c8da76106b2ccda9a6_8157289623396146275.png?x-oss-process=image%2Fresize%2Cw_356%2Fquality%2CQ_90%2Fformat%2Cwebp" alt="">
+                                    </div>
+                                    <div class="content-item-bd">
+                                        <div class="content-item-title">
+                                            <div class="item-title">米哈游携手中国社会福利基金会：守护“星星的孩子”</div>
+                                            <span>发布日期：2020-11-20</span>
+                                            <div class="base-line"></div>
+                                        </div>
+                                        <p class="content-item-intro">近日，米哈游与中国社会福利基金会联合发起“弈起守护”自闭症儿童救助公益活动，共同呼吁关注自闭症群体、关爱自闭症儿童，一起守护“星星的孩子”。</p>
+                                        <div class="content-after"></div>
+                                    </div>
+                                </a>
+                                <p>
+                                    <a href="javascript:showdiv2();" id="strHref2" class="btn-slide">查看更多</a>
+                                </p>
+
+                            </div>
+                            <script>
+                                function showdiv1(){
+                                    document.getElementById("showhide2").style.display = "block";
+                                    document.getElementById('strHref1').style.display = "none";
+                                }
+
+                            </script>
+
+                            <div id="showhide3" style="display: none;">
+
+
+                                <a href="https://www.mihoyo.com/news/100976" target="_blank" class="news-contents">
+                                    <div class="content-item_img">
+                                        <img src="https://webstatic.mihoyo.com/upload/op-public/2021/10/15/aad3051460e1a035c17986aac780bc58_1719778997289930816.png?x-oss-process=image%2Fresize%2Cw_356%2Fquality%2CQ_90%2Fformat%2Cwebp" alt="">
+                                    </div>
+                                    <div class="content-item-bd">
+                                        <div class="content-item-title">
+                                            <div class="item-title">原神×桂林：凝聚人文底蕴</div>
+                                            <span>发布日期：2020-11-13</span>
+                                            <div class="base-line"></div>
+                                        </div>
+                                        <p class="content-item-intro">近日，《原神》「从驻足到远行」桂林景区线下联动开启，游戏里的绝云间、渌华池、荻花洲，成为了全球玩家津津乐道，纷纷打卡的旅游景点。</p>
+                                        <div class="content-after"></div>
+                                    </div>
+                                </a>
+
+                                <a href="https://www.mihoyo.com/news/100603" target="_blank" class="news-contents">
+                                    <div class="content-item_img">
+                                        <img src="https://webstatic.mihoyo.com/upload/op-public/2021/08/11/d0f43e2c1914c8046e295d9bd77c4362_6211232668581088370.png?x-oss-process=image%2Fresize%2Cw_356%2Fquality%2CQ_90%2Fformat%2Cwebp" alt="">
+                                    </div>
+                                    <div class="content-item-bd">
+                                        <div class="content-item-title">
+                                            <div class="item-title">米哈游×张家界：文旅合作新探索</div>
+                                            <span>发布日期：2020-11-10</span>
+                                            <div class="base-line"></div>
+                                        </div>
+                                        <p class="content-item-intro">近日，米哈游&张家界战略合作签约暨《原神》传送点启动仪式在张家界国家森林公园举行，双方战略合作正式拉开序幕。</p>
+                                        <div class="content-after"></div>
+                                    </div>
+                                </a>
+                                <p class="btn-slide1">
+                                    没有更多
+                                </p>
+                            </div>
+                            <script>
+                                function showdiv2(){
+                                    document.getElementById("showhide3").style.display = "block";
+                                    document.getElementById('strHref2').style.display = "none";
+                                }
+
+                            </script>
+
+                        </div>
+                             <!-- 游戏 -->
+                             <div class="news-item" style="display: none;">
+                                <div class="mainshow1">
+
+                                    <a href="https://www.mihoyo.com/news/100595" target="_blank" class="news-contents">
+                                        <div class="content-item_img">
+                                            <img src="https://webstatic.mihoyo.com/upload/op-public/2021/08/11/56cb241ab9bd0498b3d420c645fe04ab_7859973270035633429.png?x-oss-process=image%2Fresize%2Cw_356%2Fquality%2CQ_90%2Fformat%2Cwebp" alt="">
+                                        </div>
+                                        <div class="content-item-bd">
+                                            <div class="content-item-title">
+                                                <div class="item-title">《原神》荣获首届中国游戏创新大赛最佳创新游戏大奖</div>
+                                                <span>发布日期：2021-08-02</span>
+                                                <div class="base-line"></div>
+                                            </div>
+                                            <p class="content-item-intro">近日，由中国游戏产业研究院举办的“2021年度首届中国游戏创新大赛”公布了最佳创新游戏大奖、最佳创新中华文化奖、最佳创新社会价值功能奖等系列获奖名单。</p>
+                                            <div class="content-after"></div>
+                                        </div>
+                                    </a>
+    
+                                    <a href="https://www.mihoyo.com/news/100613" target="_blank" class="news-contents">
+                                        <div class="content-item_img">
+                                            <img src="https://webstatic.mihoyo.com/upload/op-public/2021/08/12/09e9af4920076fa4907516057e1efe45_5164970593346580576.png?x-oss-process=image%2Fresize%2Cw_356%2Fquality%2CQ_90%2Fformat%2Cwebp" alt="">
+                                        </div>
+                                        <div class="content-item-bd">
+                                            <div class="content-item-title">
+                                                <div class="item-title">《原神》荣获Apple、Google全球年度游戏</div>
+                                                <span>发布日期：2020-12-17</span>
+                                                <div class="base-line"></div>
+                                            </div>
+                                            <p class="content-item-intro">米哈游《原神》在近日相继荣获苹果App Store 2020 iPhone年度游戏、谷歌Google Play 2020年度最佳游戏</p>
+                                            <div class="content-after"></div>
+                                        </div>
+                                    </a>
+    
+                                    <p class="btn-slide1">
+                                        没有更多
+                                    </p>
+                                    
+                                </div>
+                                
+                            </div>
+                            <!-- 公司 -->
+                            <div class="news-item" style="display: none;">
+                                <div class="mainshow">
+
+                                    <a href="https://www.mihoyo.com/news/103569" target="_blank" class="news-contents">
+                                        <div class="content-item_img">
+                                            <img src="news1.jpg" alt="">
+                                        </div>
+                                        <div class="content-item-bd">
+                                            <div class="content-item-title">
+                                                <div class="item-title">米哈游荣获“上海文化企业十强”</div>
+                                                <span>发布日期：2022-11-24</span>
+                                                <div class="base-line"></div>
+                                            </div>
+                                            <p class="content-item-intro">米哈游坚持助力传统文化创新表达、中华文化破圈传播，荣获上海文化企业十强，公司总裁刘伟荣获上海文化企业十大年度人物，公司原创IP“原神”荣获上海十大文化品牌。</p>
+                                            <div class="content-after"></div>
+                                        </div>
+                                    </a>
+    
+                                    <a href="https://www.mihoyo.com/news/103570" target="_blank" class="news-contents">
+                                        <div class="content-item_img">
+                                            <img src="news2.jpg" alt="">
+                                        </div>
+                                        <div class="content-item-bd">
+                                            <div class="content-item-title">
+                                                <div class="item-title">“你们好，见字如面！”——阅见未名：图书捐赠公益活动</div>
+                                                <span>发布日期：2022-11-24</span>
+                                                <div class="base-line"></div>
+                                            </div>
+                                            <p class="content-item-intro">2022年，米哈游《未定事件簿》携手韬奋基金会，联合开展了「阅见未名」图书捐赠公益活动。在《未定事件簿》各位玩家的热心支持下，目前已向云南省大理白族自治州11所小学、云南省普洱市澜沧拉祜族自治县36所小学共捐赠图书37000余册，并挂名“未名书屋”，丰富了当地学生的课后阅读资源。</p>
+                                            <div class="content-after"></div>
+                                        </div>
+                                    </a>
+    
+                                    <a href="https://www.mihoyo.com/news/103568" target="_blank" class="news-contents">
+                                        <div class="content-item_img">
+                                            <img src="news3.jpeg" alt="">
+                                        </div>
+                                        <div class="content-item-bd">
+                                            <div class="content-item-title">
+                                                <div class="item-title">米哈游正式通过ISO27001及ISO27701双重认证</div>
+                                                <span>发布日期：2022-10-10</span>
+                                                <div class="base-line"></div>
+                                            </div>
+                                            <p class="content-item-intro">近日，米哈游正式通过ISO双认证，获得由国际知名专业风险管理服务机构英国标准协会(BSI)官方颁发的 ISO/IEC27001信息安全管理体系认证证书和ISO/IEC27701隐私信息管理体系认证证书。</p>
+                                            <div class="content-after"></div>
+                                        </div>
+                                    </a>
+    
+                                    <a href="https://www.mihoyo.com/news/101170" target="_blank" class="news-contents">
+                                        <div class="content-item_img">
+                                            <img src="https://webstatic.mihoyo.com/upload/op-public/2022/02/09/bb01b1b80c4acc01ec54a8b88d52ece6_7744980568040073586.png?x-oss-process=image%2Fresize%2Cw_356%2Fquality%2CQ_90%2Fformat%2Cwebp" alt="">
+                                        </div>
+                                        <div class="content-item-bd">
+                                            <div class="content-item-title">
+                                                <div class="item-title">2021年中国互联网综合实力企业百强揭晓 米哈游连续五年上榜</div>
+                                                <span>发布日期：2021-11-29</span>
+                                                <div class="base-line"></div>
+                                            </div>
+                                            <p class="content-item-intro">11月26日，中国互联网协会召开中国互联网企业综合实力指数（2021）发布会，中国互联网协会副秘书长宋茂恩在会上正式发布了《中国互联网企业综合实力指数（2021）》。</p>
+                                            <div class="content-after"></div>
+                                        </div>
+                                    </a>
+    
+                                    <a href="https://www.mihoyo.com/news/100974" target="_blank" class="news-contents">
+                                        <div class="content-item_img">
+                                            <img src="https://webstatic.mihoyo.com/upload/op-public/2021/10/15/243e7a7235fec192f05bba2a4a160c5f_7980388559242797825.png?x-oss-process=image%2Fresize%2Cw_356%2Fquality%2CQ_90%2Fformat%2Cwebp" alt="">
+                                        </div>
+                                        <div class="content-item-bd">
+                                            <div class="content-item-title">
+                                                <div class="item-title">中国共产党上海米哈游网络科技股份有限公司委员会党员大会顺利召开</div>
+                                                <span>发布日期：2021-09-24</span>
+                                                <div class="base-line"></div>
+                                            </div>
+                                            <p class="content-item-intro">2021年9月24日，中共上海米哈游网络科技股份有限公司委员会召开全体党员大会，选举产生了第一届党委委员，标志着米哈游党支部正式升格为党委。</p>
+                                            <div class="content-after"></div>
+                                        </div>
+                                    </a>
+    
+                                    <p>
+                                        <a href="javascript:showdiv4();" id="strHref3" class="btn-slide">查看更多</a>
+                                    </p>
+                                    
+                                </div>
+    
+                                <div id="showhide4" style="display: none;">
+
+                                    <a href="https://www.mihoyo.com/news/100593" target="_blank" class="news-contents">
+                                        <div class="content-item_img">
+                                            <img src="https://webstatic.mihoyo.com/upload/op-public/2021/08/10/57038aae269f2737755cd100b3e6a860_6026948157949803697.png?x-oss-process=image%2Fresize%2Cw_356%2Fquality%2CQ_90%2Fformat%2Cwebp" alt="">
+                                        </div>
+                                        <div class="content-item-bd">
+                                            <div class="content-item-title">
+                                                <div class="item-title">米哈游再次入选国家文化出口重点企业 《原神》入选国家文化出口重点项目</div>
+                                                <span>发布日期：2021-08-04</span>
+                                                <div class="base-line"></div>
+                                            </div>
+                                            <p class="content-item-intro">日前，国家商务部办公厅、中央宣传部办公厅、财政部办公厅、文化和旅游部办公厅及广电总局办公厅共同公布了“2021-2022年度国家文化出口重点企业和重点项目名单”。根据公示名单，米哈游入围2021-2022年度国家文化出口重点企业，《原神》入围2021-2022年度国家文化出口重点项目。</p>
+                                            <div class="content-after"></div>
+                                        </div>
+                                    </a>
+    
+                                    <a href="https://www.mihoyo.com/news/100594" target="_blank" class="news-contents">
+                                        <div class="content-item_img">
+                                            <img src="https://webstatic.mihoyo.com/upload/op-public/2021/08/10/d0f62f5a1c71423eb1bd0b55c6cb2cc0_6834787032492709882.png?x-oss-process=image%2Fresize%2Cw_356%2Fquality%2CQ_90%2Fformat%2Cwebp" alt="">
+                                        </div>
+                                        <div class="content-item-bd">
+                                            <div class="content-item-title">
+                                                <div class="item-title">希望不熄 薪火永燃｜中国青基会与米哈游成立薪火公益计划</div>
+                                                <span>发布日期：2021-07-12</span>
+                                                <div class="base-line"></div>
+                                            </div>
+                                            <p class="content-item-intro">2021年7月12日，由中国青少年发展基金会和上海米哈游网络科技股份有限公司共同发起的旨在关注与支持国内青少年教育发展的“2021中国青基会希望工程·米哈游薪火公益计划发布会”在北京举行。中国青基会党委书记、理事长郭美荐，中国青基会副秘书长张华伟，上海米哈游网络科技股份有限公司副总裁殷春波等出席此次发布会并共同举行了“薪火公益计划”授牌仪式。目前，该计划第一期项目已在云南省盐津县普洱镇桐梓小学开展实施。</p>
+                                            <div class="content-after"></div>
+                                        </div>
+                                    </a>
+    
+                                    <a href="https://www.mihoyo.com/news/100678" target="_blank" class="news-contents">
+                                        <div class="content-item_img">
+                                            <img src="https://webstatic.mihoyo.com/upload/op-public/2021/08/12/0ab44f413e2513bb8e89fd3996e23ff8_7920693913283872724.png?x-oss-process=image%2Fresize%2Cw_356%2Fquality%2CQ_90%2Fformat%2Cwebp" alt="">
+                                        </div>
+                                        <div class="content-item-bd">
+                                            <div class="content-item-title">
+                                                <div class="item-title">米哈游携手中国青少年发展基金会：共绘流景，让生命绽放光芒</div>
+                                                <span>发布日期：2021-06-09</span>
+                                                <div class="base-line"></div>
+                                            </div>
+                                            <p class="content-item-intro">近日，米哈游携手中国青少年发展基金会 ，举办「共绘流景」儿童美术教育公益活动，共同呼吁关注美术教育，让每一个孩子都能绽放属于他的光芒。</p>
+                                            <div class="content-after"></div>
+                                        </div>
+                                    </a>
+    
+                                    <a href="https://www.mihoyo.com/news/100977" target="_blank" class="news-contents">
+                                        <div class="content-item_img">
+                                            <img src="https://webstatic.mihoyo.com/upload/op-public/2021/10/15/96acccb32f7eaece0766f4aa4914ed1e_918259689375188862.png?x-oss-process=image%2Fresize%2Cw_356%2Fquality%2CQ_90%2Fformat%2Cwebp" alt="">
+                                        </div>
+                                        <div class="content-item-bd">
+                                            <div class="content-item-title">
+                                                <div class="item-title">米哈游团委成立</div>
+                                                <span>发布日期：2021-05-21</span>
+                                                <div class="base-line"></div>
+                                            </div>
+                                            <p class="content-item-intro">2021年5月21日上午，共青团上海米哈游网络科技股份有限公司委员会召开了第一次团员代表大会，选举产生共青团委员会第一届委员会委员及书记、副书记。团市委副书记丁波出席并讲话，团市委宣传与网络工作部部长何婷婷，虹梅街道党工委书记、人大工委主任万小岚，徐汇团区委副书记（主持工作）陆璟琨参加会议，公司团员青年代表60余人参加本次大会。</p>
+                                            <div class="content-after"></div>
+                                        </div>
+                                    </a>
+
+                                    <a href="https://www.mihoyo.com/news/100676" target="_blank" class="news-contents">
+                                        <div class="content-item_img">
+                                            <img src="https://webstatic.mihoyo.com/upload/op-public/2021/08/12/3ff4c1b35d106beba1e23acd48dd4e10_2685484553307463424.png?x-oss-process=image%2Fresize%2Cw_356%2Fquality%2CQ_90%2Fformat%2Cwebp" alt="">
+                                        </div>
+                                        <div class="content-item-bd">
+                                            <div class="content-item-title">
+                                                <div class="item-title">米哈游携手中国法律援助基金会：以法扬善，长乐长安</div>
+                                                <span>发布日期：2021-04-15</span>
+                                                <div class="base-line"></div>
+                                            </div>
+                                            <p class="content-item-intro">近日，米哈游携手中国法律援助基金会，举办「毅然同行」法律援助公益活动，共同呼吁关注法治建设，共创美好生活。</p>
+                                            <div class="content-after"></div>
+                                        </div>
+                                    </a>
+                                    <p>
+                                        <a href="javascript:showdiv5();" id="strHref4" class="btn-slide">查看更多</a>
+                                    </p>
+    
+                                </div>
+                                <script>
+                                    function showdiv4(){
+                                        document.getElementById("showhide4").style.display = "block";
+                                        document.getElementById('strHref3').style.display = "none";
+                                    }
+    
+                                </script>
+    
+                                <div id="showhide5" style="display: none;">
+    
+                                    
+    
+                                    <a href="https://www.mihoyo.com/news/100608" target="_blank" class="news-contents">
+                                        <div class="content-item_img">
+                                            <img src="https://webstatic.mihoyo.com/upload/op-public/2021/08/12/89c61711a6fcc9181bb52b28a7b2db8c_3989892684335036449.png?x-oss-process=image%2Fresize%2Cw_356%2Fquality%2CQ_90%2Fformat%2Cwebp" alt="">
+                                        </div>
+                                        <div class="content-item-bd">
+                                            <div class="content-item-title">
+                                                <div class="item-title">未定事件簿携手中国绿色碳汇基金会：遗鸥保护公益活动</div>
+                                                <span>发布日期：2021-02-05</span>
+                                                <div class="base-line"></div>
+                                            </div>
+                                            <p class="content-item-intro">2020年11月，米哈游携手中国绿色碳汇基金会，联合发起“夏羽乘风”遗鸥保护公益活动，呼吁更多人关注鸟类保护、关注生物多样性、关注自然生态。</p>
+                                            <div class="content-after"></div>
+                                        </div>
+                                    </a>
+    
+                                    <a href="https://www.mihoyo.com/news/100613" target="_blank" class="news-contents">
+                                        <div class="content-item_img">
+                                            <img src="https://webstatic.mihoyo.com/upload/op-public/2021/08/12/09e9af4920076fa4907516057e1efe45_5164970593346580576.png?x-oss-process=image%2Fresize%2Cw_356%2Fquality%2CQ_90%2Fformat%2Cwebp" alt="">
+                                        </div>
+                                        <div class="content-item-bd">
+                                            <div class="content-item-title">
+                                                <div class="item-title">《原神》荣获Apple、Google全球年度游戏</div>
+                                                <span>发布日期：2020-12-17</span>
+                                                <div class="base-line"></div>
+                                            </div>
+                                            <p class="content-item-intro">米哈游《原神》在近日相继荣获苹果App Store 2020 iPhone年度游戏、谷歌Google Play 2020年度最佳游戏</p>
+                                            <div class="content-after"></div>
+                                        </div>
+                                    </a>
+    
+                                    <a href="https://www.mihoyo.com/news/100605" target="_blank" class="news-contents">
+                                        <div class="content-item_img">
+                                            <img src="https://webstatic.mihoyo.com/upload/op-public/2021/08/11/3e14d4993e5f2345977184fd41075e52_6565252122670267552.png?x-oss-process=image%2Fresize%2Cw_356%2Fquality%2CQ_90%2Fformat%2Cwebp" alt="">
+                                        </div>
+                                        <div class="content-item-bd">
+                                            <div class="content-item-title">
+                                                <div class="item-title">米哈游×黄龙：赋能生态环境保护</div>
+                                                <span>发布日期：2020-11-30</span>
+                                                <div class="base-line"></div>
+                                            </div>
+                                            <p class="content-item-intro">继与张家界的联动之后，米哈游与黄龙国家级风景名胜区的合作也正式启动，邀你一同踏上奇幻多彩之旅！</p>
+                                            <div class="content-after"></div>
+                                        </div>
+                                    </a>
+    
+                                    <a href="https://www.mihoyo.com/news/100606" target="_blank" class="news-contents">
+                                        <div class="content-item_img">
+                                            <img src="https://webstatic.mihoyo.com/upload/op-public/2021/08/12/7122509553c2c2c8da76106b2ccda9a6_8157289623396146275.png?x-oss-process=image%2Fresize%2Cw_356%2Fquality%2CQ_90%2Fformat%2Cwebp" alt="">
+                                        </div>
+                                        <div class="content-item-bd">
+                                            <div class="content-item-title">
+                                                <div class="item-title">米哈游携手中国社会福利基金会：守护“星星的孩子”</div>
+                                                <span>发布日期：2020-11-20</span>
+                                                <div class="base-line"></div>
+                                            </div>
+                                            <p class="content-item-intro">近日，米哈游与中国社会福利基金会联合发起“弈起守护”自闭症儿童救助公益活动，共同呼吁关注自闭症群体、关爱自闭症儿童，一起守护“星星的孩子”。</p>
+                                            <div class="content-after"></div>
+                                        </div>
+                                    </a>
+
+                                    <a href="https://www.mihoyo.com/news/100976" target="_blank" class="news-contents">
+                                        <div class="content-item_img">
+                                            <img src="https://webstatic.mihoyo.com/upload/op-public/2021/10/15/aad3051460e1a035c17986aac780bc58_1719778997289930816.png?x-oss-process=image%2Fresize%2Cw_356%2Fquality%2CQ_90%2Fformat%2Cwebp" alt="">
+                                        </div>
+                                        <div class="content-item-bd">
+                                            <div class="content-item-title">
+                                                <div class="item-title">原神×桂林：凝聚人文底蕴</div>
+                                                <span>发布日期：2020-11-13</span>
+                                                <div class="base-line"></div>
+                                            </div>
+                                            <p class="content-item-intro">近日，《原神》「从驻足到远行」桂林景区线下联动开启，游戏里的绝云间、渌华池、荻花洲，成为了全球玩家津津乐道，纷纷打卡的旅游景点。</p>
+                                            <div class="content-after"></div>
+                                        </div>
+                                    </a>
+    
+                                    <a href="https://www.mihoyo.com/news/100603" target="_blank" class="news-contents">
+                                        <div class="content-item_img">
+                                            <img src="https://webstatic.mihoyo.com/upload/op-public/2021/08/11/d0f43e2c1914c8046e295d9bd77c4362_6211232668581088370.png?x-oss-process=image%2Fresize%2Cw_356%2Fquality%2CQ_90%2Fformat%2Cwebp" alt="">
+                                        </div>
+                                        <div class="content-item-bd">
+                                            <div class="content-item-title">
+                                                <div class="item-title">米哈游×张家界：文旅合作新探索</div>
+                                                <span>发布日期：2020-11-10</span>
+                                                <div class="base-line"></div>
+                                            </div>
+                                            <p class="content-item-intro">近日，米哈游&张家界战略合作签约暨《原神》传送点启动仪式在张家界国家森林公园举行，双方战略合作正式拉开序幕。</p>
+                                            <div class="content-after"></div>
+                                        </div>
+                                    </a>
+                                    <p class="btn-slide1">
+                                        没有更多
+                                    </p>
+    
+                                </div>
+                                <script>
+                                    function showdiv5(){
+                                        document.getElementById("showhide5").style.display = "block";
+                                        document.getElementById('strHref4').style.display = "none";
+                                    }
+    
+                                </script>
+    
+                            </div>
+                    </div>
+                   
+                    </div>
+                </div>
+                <script>
+                    var lis=document.querySelector('#news-tabNav ul').querySelectorAll('li');
+                    var divs=document.querySelector('#newscontent-main').querySelectorAll('.news-item');
+                    for(var i=0;i<lis.length;i++){
+                        lis[i].setAttribute('index',i);
+                        lis[i].onclick=function(){
+                            for(var i=0;i<lis.length;i++){
+                                lis[i].className='';
+                            }
+                            this.className='active1';
+                            var index=this.getAttribute('index');
+                            for(var i=0;i<divs.length;i++){
+                                divs[i].style.display='none';
+                            }
+                            divs[index].style.display='block';
+                        }
+                    }
+                </script>		
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- 主页end -->
+
+
+    <!-- 页脚 -->
+    <section class="footer">
+        <div class="mihoyo-footer">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-box">
+                        <img src="mihoyo-logo.png" alt="" class="logo-big">
+                    </div>
+                </div>
+                <div class="footer-info">
+                    <div class="footer-link">
+                        <div>
+                            <span class="protocol1">隐私政策</span>
+                            <span class="protocol">|</span>
+                            <span class="protocol">自律公约</span>
+                            <span class="protocol">|</span>
+                            <span class="protocol">廉政举报</span>
+                            <span class="protocol">|</span>
+                            <span class="protocol">联系我们</span>
+                            <span class="protocol">|</span>
+                            <span class="protocol">加入我们</span>
+                            <span class="protocol">|</span>
+                            <span class="protocol"><a href="report.html" style="color: #fff;" target="_blank">报告</a></span>
+                        </div>
+                    </div>
+                    <div class="footer-advice">
+                        <p>
+                            健康游戏忠告：抵制不良游戏，拒绝盗版游戏。注意自我保护，谨防受骗上当。适度游戏益脑，沉迷游戏伤身。合理安排时间，享受健康生活。
+                        </p>
+                        <div class="inline-info">
+                            <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=沪公网安备31010402001113号" target="_blank" style="color: #999;">
+                                沪公网安备31010402001113号
+                            </a>
+                            <span class="split-line">|</span>
+                            <span class="footer-filing-item">增值电信业务经营许可证：沪B2-20190555</span>
+
+                        </div>
+                    </div>
+                    <div class="footer-filing">
+                        <div class="footer-filing-tip">
+                            <span>互联网违法不良信息举报邮箱: tousu@mihoyo.com</span>
+                            <span>互联网违法不良信息举报电话: 021-60371750 （工作时间：每天10点 - 20点）</span>
+                        </div>
+                    </div>
+                    <div class="footer-tip">
+                        亲爱的市民朋友，上海警方反诈劝阻电话“962110”系专门针对避免您财产被骗受损而设，请您一旦收到来电，立即接听
+                    </div>
+                    <div class="footer-filing-content">
+                        <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank" style="color: #999;">
+                            沪ICP备19018275号-4
+                        </a>
+                        <span class="split-line">|</span>
+                        <span class="footer-filing-item">沪网文〔2022〕1334-052号</span>
+                    </div>
+                    <div class="guanai-phone">
+                        未成年成长关爱热线：021-60371740 （服务时间：8:00-23:00）
+                    </div>
+                    <div class="footer-phone">
+                        <div class="mihoyo-copyright">©miHoYo | 上海米哈游影铁科技有限公司</div>
+                        <div class="complaint-phone">客服电话：400-666-6312</div>
+                    </div>
+                    <div class="footer-icon">
+                        <a href="https://v.yunaq.com/certificate?domain=www.mihoyo.com&amp;from=label&amp;code=90020" target="_blank">
+                            <img src="icon1.png" alt="">
+                        </a>
+                        <a href="http://www.shjbzx.cn/" target="_blank">
+                            <img src="icon2.png" alt="">
+                        </a>
+                        <a href="https://www.12377.cn/" target="_blank">
+                            <img src="icon3.png" alt="">
+                        </a>
+                        <a href="http://sq.ccm.gov.cn:80/ccnt/sczr/service/business/emark/toDetail/8955A9DDE1FF8B6CE053010A14ACA87F" target="_blank">
+                            <img src="icon4.png" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="icon5.png" alt="">
+                        </a>
+                        <a href="http://wap.scjgj.sh.gov.cn/businessCheck/verifKey.do?showType=extShow&amp;serial=9031000020190314100540000004452331-SAIC_SHOW_310000-20200120150237277642&amp;signData=MEYCIQCjn9IhIKfUHjPlx9W6xrYPZ4GA73Blopwp0iEzSX0OHQIhAOZm3tnlWLrgVXMtvgp5OibauIgiAa+2d+MQ7qzMIm6t" target="_blank">
+                            <img src="icon6.png" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 页脚end -->
+    
+</body>
+</html>
