@@ -1,0 +1,285 @@
+.main{
+    display: flex;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    z-index: 5;
+    background: url(index-bg.png) repeat center center;
+    
+}
+#open{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100vh;
+    z-index: 9;
+}
+.open-content{
+    position: absolute;
+    left: 0;
+    top: 0px;
+    width: 100%;
+    height: 750px;
+    background: url("baizhou.gif");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.open1,
+.open2,
+.open3,
+.open4{
+    position: absolute;
+    width: 100%;
+    height: 750px;
+    filter: drop-shadow(4px 4px 12px rgba(0,0,0,.5));
+    background-size: cover;
+    opacity: .7;
+    transition: 5s;
+}
+.open1::after,
+.open2::after,
+.open3::after,
+.open4::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("zhuye.webp");
+}
+.open1{
+    left: -400px;
+    transform: rotateZ(100deg);
+    overflow: hidden;
+}
+.open1::after{
+    transform: rotateZ(-100deg);
+}
+
+.open2{
+    left: -400px;
+    transform: rotateZ(-100deg);
+    overflow: hidden;
+}
+.open2::after{
+    transform: rotateZ(100deg);
+}
+
+.open3{
+    right: -400px;
+    transform: rotateZ(105deg);
+    overflow: hidden;
+}
+.open3::after{
+    transform: rotateZ(-105deg);
+}
+
+.open4{
+    right: -400px;
+    transform: rotateZ(-100deg);
+    overflow: hidden;
+}
+.open4::after{
+    transform: rotateZ(100deg);
+}
+.open-btn{
+    position: absolute;
+    opacity: 0;
+    bottom: 7vh;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font: 900 23px '';
+    letter-spacing: 10px;
+    color: rgb(255, 255, 255);
+    transition: 2s;
+    text-decoration: none;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(65, 64, 64, 0.2);
+}
+.open-content:hover .open1{
+    left: -600px;
+}
+.open-content:hover .open2{
+    left: -650px;
+}
+.open-content:hover .open3{
+    right: -600px;
+}
+.open-content:hover .open4{
+    right: -650px;
+}
+.open-content:hover .open-btn{
+    opacity: 1;
+}
+.open-btn:hover{
+    color: antiquewhite;
+}
+.map-side{
+    position: absolute;
+    margin-top: 230px;
+    left: 0;
+    z-index: 2;
+}
+.map-side img{
+    float: left;
+    width: 177px;
+}
+.map-decoration{
+    position: absolute;
+    right: 0px;
+    top: 66px;
+}
+.map-decoration img{
+    width: 115px;
+}
+.map-shell{
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll; 
+    perspective: 3px;
+}
+.shell div{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: 30px;
+    letter-spacing: 2px;
+}
+.shell-image{
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    height: 100vh;
+    z-index: -1;
+}
+.mihoyo-map{
+    width: 70vh;
+    position: relative;
+    top: 20%;
+    left: 35%;
+    height: auto;
+    z-index: -1;
+}
+.shell-text{
+    height: 20vh;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0);
+}
+.shell-text h1{
+    font-size: 45px;
+    line-height: 20vh;
+    color: #3778e5;
+}
+.shell-heading{
+    z-index: -1;
+    width: 100%;
+    text-align: center;
+    transform: translateY(-30vh) translateZ(1px);
+    color:  #35393c;
+    font-size: 20px;
+}
+.honor{
+    width: 550px;
+    height: 364px;
+    position: relative;
+    top: 25%;
+    margin: auto;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: .8s;
+}
+.m1,.m2,.m3,.m4,.m5,.m6,.m7,.m8{
+    width: 550px;
+    height: 364px;
+    position: absolute;
+    background-color: #fff;
+    transform-origin: left;
+    background-size: cover;
+    transition: calc(var(--i)*.6s);
+    z-index: calc(var(--i)*99);
+    overflow: hidden;
+}
+.m1,
+.m2{
+    border: 10px solid #0F0829;
+    border-left: none;
+    top: -20px;
+    padding: 8px 16px;
+    border-radius: 4px;
+}
+.honor:hover .m1{
+    border-left: 2px solid #FEF0A4;
+}
+.honor:hover .m2,
+.honor:hover .m3,
+.honor:hover .m4,
+.honor:hover .m5,
+.honor:hover .m6,
+.honor:hover .m7,
+.honor:hover .m8{
+    transform: rotateY(-180deg);
+    transition: calc(var(--s)* 1.2s);
+    z-index: calc(var(--s)*-99);
+}
+.honor:hover{
+    transform: translateX(275px);
+}
+.shell-heading1{
+    z-index: -1;
+    width: 100%;
+    text-align: center;
+    transform: translateY(-25vh) translateZ(1px);
+    color:  #35393c;
+    font-size: 20px;
+}
+.mhy-ry{
+    border: none;
+    width: 95%;
+    position: relative;
+    margin: auto;
+}
+.honor-year{
+    position: relative;
+    float: left;
+    clear: both;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.honor-item{
+    font-size: 0.16rem;
+    width: 100%;
+    font-weight: bold;
+    color: #242933;
+    text-align: center;
+}
+.honor-item::before{
+    content: "";
+    position: relative;
+    display: inline-block;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    left: 0;
+    background: url(ms.png) center center;
+    background-size: cover;
+}
+.item-origin{
+    color: #676b73;
+    font-size: 0.14rem;
+    font-weight: lighter;
+}
